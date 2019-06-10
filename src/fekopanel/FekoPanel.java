@@ -5,6 +5,7 @@
  */
 package fekopanel;
 
+import java.awt.Desktop;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -31,7 +32,7 @@ public class FekoPanel extends Application {
     public void start(Stage primaryStage) {
         HBox root=new HBox();
         ComboBox list1=new ComboBox();
-        list1.getItems().addAll("A", "B", "C");
+        list1.getItems().addAll("Three_Spheres_VPol_MoM.pfs", "B", "C");
         
         ComboBox list2=new ComboBox();
         ComboBox list3=new ComboBox();
@@ -41,16 +42,18 @@ public class FekoPanel extends Application {
             public void handle(Event event) {
                 String item1=(String) list1.getSelectionModel().getSelectedItem();
                 list2.getItems().clear();
-                list2.getItems().addAll(item1+"0", item1+"1", item1+"2");
+                list2.getItems().addAll("RCS_XY_v0", item1+"1", item1+"2");
             }
         });
+        
+        list3.getItems().addAll("CartesianGraphs");
         Button goButton=new Button("GO");
         goButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 ProcessBuilder processBuilder = new ProcessBuilder();
-                processBuilder.command("ls");
-                processBuilder.directory(new File("/home/lendle"));
+                processBuilder.command("postfeko", "Three_Spheres_VPol_MoM.pfs", "--run-script", "test.lua", "--non-interactive");
+                processBuilder.directory(new File("C:\\Users\\lendle\\Downloads\\POSTFEKO"));
                 try {
                     Process process=processBuilder.start();
                     BufferedReader reader=new BufferedReader(new InputStreamReader(process.getInputStream()));
@@ -59,6 +62,7 @@ public class FekoPanel extends Application {
                         System.out.println(str);
                         str=reader.readLine();
                     }
+                    Desktop.getDesktop().open(new File("C:\\Users\\lendle\\Downloads\\POSTFEKO\\temp_FarFieldGraph.png"));
                 } catch (IOException ex) {
                     Logger.getLogger(FekoPanel.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -68,7 +72,7 @@ public class FekoPanel extends Application {
         
         root.getChildren().addAll(list1, list2, list3, goButton);
         
-        Scene scene = new Scene(root, 500, 100);
+        Scene scene = new Scene(root, 550, 100);
         
         primaryStage.setTitle("Hello World!");
         primaryStage.setScene(scene);
