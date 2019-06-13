@@ -5,6 +5,8 @@
  */
 package fekopanel.impl;
 
+import fekopanel.FekoCommand;
+import fekopanel.PostRunner;
 import fekopanel.Session;
 import fekopanel.SessionConfig;
 import java.io.File;
@@ -55,8 +57,14 @@ public class DefaultSessionImpl implements Session{
 
     @Override
     public void run() throws Exception {
-        sessionConfig.getFekoCommand().run();
-        sessionConfig.getPostRunner().run();
+        FekoCommand fekoCommand=(FekoCommand) Class.forName(sessionConfig.getFekoCommandConfig().getClassName()).newInstance();
+        fekoCommand.init(sessionFolder, sessionConfig.getFekoCommandConfig().getProperties());
+        
+        PostRunner postRunner=(PostRunner) Class.forName(sessionConfig.getPostRunnerConfig().getClassName()).newInstance();
+        postRunner.init(sessionFolder, sessionConfig.getPostRunnerConfig().getProperties());
+        
+        fekoCommand.run();
+        postRunner.run();
     }
     
 }

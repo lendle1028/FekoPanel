@@ -14,8 +14,24 @@ import java.io.File;
 public class SessionConfig {
     private String implementationClass=null;
     private File [] presetFiles=null;
-    private FekoCommand fekoCommand=null;
-    private PostRunner postRunner=null;
+    private FekoCommandConfig fekoCommandConfig=null;
+    private PostRunnerConfig postRunnerConfig=null;
+
+    public FekoCommandConfig getFekoCommandConfig() {
+        return fekoCommandConfig;
+    }
+
+    public void setFekoCommandConfig(FekoCommandConfig fekoCommandConfig) {
+        this.fekoCommandConfig = fekoCommandConfig;
+    }
+
+    public PostRunnerConfig getPostRunnerConfig() {
+        return postRunnerConfig;
+    }
+
+    public void setPostRunnerConfig(PostRunnerConfig postRunnerConfig) {
+        this.postRunnerConfig = postRunnerConfig;
+    }
 
     public String getImplementationClass() {
         return implementationClass;
@@ -32,22 +48,4 @@ public class SessionConfig {
     public void setPresetFiles(File[] presetFiles) {
         this.presetFiles = presetFiles;
     }
-
-    public FekoCommand getFekoCommand() {
-        return fekoCommand;
-    }
-
-    public void setFekoCommand(FekoCommand fekoCommand) {
-        this.fekoCommand = fekoCommand;
-    }
-
-    public PostRunner getPostRunner() {
-        return postRunner;
-    }
-
-    public void setPostRunner(PostRunner postRunner) {
-        this.postRunner = postRunner;
-    }
-    
-    
 }
