@@ -12,7 +12,6 @@ import java.io.File;
  * @author lendle
  */
 public class SessionConfig {
-    private String implementationClass=null;
     private File [] presetFiles=null;
     private FekoCommandConfig fekoCommandConfig=null;
     private PostRunnerConfig postRunnerConfig=null;
@@ -31,14 +30,6 @@ public class SessionConfig {
 
     public void setPostRunnerConfig(PostRunnerConfig postRunnerConfig) {
         this.postRunnerConfig = postRunnerConfig;
-    }
-
-    public String getImplementationClass() {
-        return implementationClass;
-    }
-
-    public void setImplementationClass(String implementationClass) {
-        this.implementationClass = implementationClass;
     }
 
     public File[] getPresetFiles() {

@@ -1,0 +1,10 @@
+{
+    "presetFiles":["build.xml", "manifest.mf"],
+    "fekoCommandConfig":{
+        "className":"fekopanel.impl.FakeFekoCommandImpl"
+    },
+    "postRunnerConfig":{
+        "className":"fekopanel.impl.OpenFilePostRunnerImpl",
+        "fileName": "build.xml"
+    }
+}
