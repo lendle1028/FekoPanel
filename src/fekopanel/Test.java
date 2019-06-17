@@ -19,7 +19,7 @@ public class Test {
      */
     public static void main(String[] args) throws Exception{
         // TODO code application logic here
-        Session session=DefaultSessionFactory.fromJsonFile(new File("fake.json"));
+        Session session=DefaultSessionFactory.fromJsonFile(new File("fake_multiplefile.json"));
         session.run();
     }
     
