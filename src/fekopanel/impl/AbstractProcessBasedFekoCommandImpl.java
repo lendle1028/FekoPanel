@@ -8,6 +8,7 @@ package fekopanel.impl;
 import fekopanel.FekoCommand;
 import java.io.File;
 import java.util.Map;
+import javafx.application.Application;
 
 /**
  *

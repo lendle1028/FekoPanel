@@ -20,6 +20,7 @@ public class OpenFilePostRunnerImpl implements PostRunner{
     @Override
     public void init(File workDir, Map properties) throws Exception {
         this.workDir=workDir;
+
         this.fileName=(String) properties.get("fileName");
     }
 

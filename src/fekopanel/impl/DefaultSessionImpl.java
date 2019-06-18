@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Application;
 import org.apache.commons.io.FileUtils;
 
 /**
@@ -26,7 +27,7 @@ public class DefaultSessionImpl implements Session{
     @Override
     public void init(SessionConfig sessionConfig) {
         this.sessionConfig=sessionConfig;
-        File tempFolder=new File(System.getProperty("java.io.tmpdir"));
+        File tempFolder=new File(System.getProperty("user.home"));
         File sessionsFolder=new File(tempFolder, ".fekoPanelSession");
         if(!sessionsFolder.exists()){
             sessionsFolder.mkdirs();

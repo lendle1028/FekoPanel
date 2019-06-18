@@ -13,6 +13,30 @@
             {
                 "label": "B",
                 "name": "build.xml"
+            },
+            {
+                "label": "A",
+                "name": "build.xml"
+            },
+            {
+                "label": "B",
+                "name": "build.xml"
+            },
+            {
+                "label": "A",
+                "name": "build.xml"
+            },
+            {
+                "label": "B",
+                "name": "build.xml"
+            },
+            {
+                "label": "A",
+                "name": "build.xml"
+            },
+            {
+                "label": "B",
+                "name": "build.xml"
             }
         ]
     }
