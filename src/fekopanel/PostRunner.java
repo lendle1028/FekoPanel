@@ -13,6 +13,6 @@ import java.util.Map;
  * @author lendle
  */
 public interface PostRunner {
-    public void init(File workDir, Map properties) throws Exception;
+    public void init(File workDir, PostRunnerConfig config) throws Exception;
     public void run() throws Exception;
 }

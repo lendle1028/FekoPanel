@@ -5,6 +5,7 @@
  */
 package fekopanel;
 
+import java.io.File;
 import java.util.Map;
 
 /**
@@ -14,6 +15,15 @@ import java.util.Map;
 public class FekoCommandConfig {
     private String className=null;
     private Map properties=null;
+    private File fekoFile=null;
+
+    public File getFekoFile() {
+        return fekoFile;
+    }
+
+    public void setFekoFile(File fekoFile) {
+        this.fekoFile = fekoFile;
+    }
 
     public String getClassName() {
         return className;

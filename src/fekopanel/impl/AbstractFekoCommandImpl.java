@@ -15,19 +15,20 @@ import java.util.Map;
  *
  * @author lendle
  */
-public class FakeFekoCommandImpl implements FekoCommand{
+public class AbstractFekoCommandImpl implements FekoCommand{
     protected File workDir=null;
     protected Map<String, String> args=new HashMap<>();
+    protected Map<String, String> sysEnv=new HashMap<>();
     
     @Override
     public void init(File workDir, FekoCommandConfig config) throws Exception {
-        this.workDir=workDir;
         Map properties=config.getProperties();
+        this.workDir=workDir;
         Map<String, String> _args=(Map) properties.get("args");
         for(String key : _args.keySet()){
             String value=_args.get(key);
             if("${FEKO_FILE_NAME}".equals(value)){
-                args.put(key, "file");
+                args.put(key, config.getFekoFile().getName());
             }else{
                 args.put(key, value);
             }

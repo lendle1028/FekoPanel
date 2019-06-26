@@ -6,6 +6,7 @@
 package fekopanel.impl;
 
 import fekopanel.PostRunner;
+import fekopanel.PostRunnerConfig;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
@@ -36,8 +37,9 @@ public class OpenMultiFilePostRunnerImpl implements PostRunner {
     protected File workDir = null;
     protected List<Map<String, String>> files = new ArrayList<>();
     @Override
-    public void init(File workDir, Map properties) throws Exception {
+    public void init(File workDir, PostRunnerConfig config) throws Exception {
         this.workDir = workDir;
+        Map properties=config.getProperties();
         List<Map<String, String>> list = (List<Map<String, String>>) properties.get("files");
         files.addAll(list);
     }

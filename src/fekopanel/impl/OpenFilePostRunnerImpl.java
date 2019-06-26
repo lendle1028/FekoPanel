@@ -6,6 +6,7 @@
 package fekopanel.impl;
 
 import fekopanel.PostRunner;
+import fekopanel.PostRunnerConfig;
 import java.awt.Desktop;
 import java.io.File;
 import java.util.Map;
@@ -18,9 +19,9 @@ public class OpenFilePostRunnerImpl implements PostRunner{
     protected File workDir=null;
     protected String fileName=null;
     @Override
-    public void init(File workDir, Map properties) throws Exception {
+    public void init(File workDir, PostRunnerConfig config) throws Exception {
         this.workDir=workDir;
-
+        Map properties=config.getProperties();
         this.fileName=(String) properties.get("fileName");
     }
 

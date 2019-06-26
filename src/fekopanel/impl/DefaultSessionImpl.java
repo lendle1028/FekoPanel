@@ -54,15 +54,17 @@ public class DefaultSessionImpl implements Session{
                 Logger.getLogger(DefaultSessionImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        
+        sessionConfig.getFekoCommandConfig().setFekoFile(new File(sessionFolder, sessionConfig.getFekoFile().getName()));
     }
 
     @Override
     public void run() throws Exception {
         FekoCommand fekoCommand=(FekoCommand) Class.forName(sessionConfig.getFekoCommandConfig().getClassName()).newInstance();
-        fekoCommand.init(sessionFolder, sessionConfig.getFekoCommandConfig().getProperties());
+        fekoCommand.init(sessionFolder, sessionConfig.getFekoCommandConfig());
         
         PostRunner postRunner=(PostRunner) Class.forName(sessionConfig.getPostRunnerConfig().getClassName()).newInstance();
-        postRunner.init(sessionFolder, sessionConfig.getPostRunnerConfig().getProperties());
+        postRunner.init(sessionFolder, sessionConfig.getPostRunnerConfig());
         
         fekoCommand.run();
         postRunner.run();

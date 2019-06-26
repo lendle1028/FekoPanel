@@ -6,9 +6,9 @@
 package fekopanel.impl;
 
 import fekopanel.FekoCommand;
+import fekopanel.FekoCommandConfig;
 import java.io.File;
 import java.util.Map;
-import javafx.application.Application;
 
 /**
  *
@@ -17,12 +17,12 @@ import javafx.application.Application;
 public abstract class AbstractProcessBasedFekoCommandImpl implements FekoCommand{
     protected File workDir=null;
     @Override
-    public void init(File workDir, Map properties) throws Exception {
+    public void init(File workDir, FekoCommandConfig config) throws Exception {
        this.workDir=workDir;
-       this.init(properties);
+       this.init(config);
     }
     
-    protected abstract void init(Map properties) throws Exception;
+    protected abstract void init(FekoCommandConfig config) throws Exception;
 
     @Override
     public void run() throws Exception {
