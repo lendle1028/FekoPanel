@@ -38,6 +38,7 @@ public class DefaultSessionFactory {
         FekoCommandConfig fekoCommandConfig=new FekoCommandConfig();
         fekoCommandConfig.setClassName((String) fekoCommandConfigMap.get("className"));
         fekoCommandConfig.setProperties(fekoCommandConfigMap);
+        fekoCommandConfig.setMainLuaFile((String) fekoCommandConfigMap.get("main"));
         sessionConfig.setFekoCommandConfig(fekoCommandConfig);
         
         Map postRunnerConfigMap=(Map) map.get("postRunnerConfig");

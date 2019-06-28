@@ -1,7 +1,8 @@
 {
     "presetFiles":["build.xml", "manifest.mf"],
     "fekoCommandConfig":{
-        "className":"fekopanel.impl.FakeFekoCommandImpl"
+        "className":"fekopanel.impl.FakeFekoCommandImpl",
+        "main":"test.lua"
     },
     "postRunnerConfig":{
         "className":"fekopanel.impl.OpenMultiFilePostRunnerImpl",

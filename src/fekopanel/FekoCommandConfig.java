@@ -16,7 +16,18 @@ public class FekoCommandConfig {
     private String className=null;
     private Map properties=null;
     private File fekoFile=null;
+    private String mainLuaFile=null;
 
+    public String getMainLuaFile() {
+        return mainLuaFile;
+    }
+
+    public void setMainLuaFile(String mainLuaFile) {
+        this.mainLuaFile = mainLuaFile;
+    }
+
+    
+    
     public File getFekoFile() {
         return fekoFile;
     }

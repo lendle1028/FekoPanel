@@ -2,6 +2,7 @@
     "presetFiles":["build.xml", "manifest.mf"],
     "fekoCommandConfig":{
         "className":"fekopanel.impl.FakeFekoCommandImpl",
+        "main":"test.lua",
         "args":[
             {
                 "name": "arg1",
