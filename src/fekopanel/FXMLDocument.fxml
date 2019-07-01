@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="root" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="fekopanel.FXMLDocumentController">
+    <children>
+        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+      <Button fx:id="openFileButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleOpenFileAction" text="Open File" />
+      <Button fx:id="openAllGraphsButton" layoutX="92.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleOpenAllGraphsAction" text="Open All Graphs" />
+    </children>
+</AnchorPane>
