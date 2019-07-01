@@ -5,11 +5,18 @@
  */
 package fekopanel;
 
+import java.io.File;
+
 /**
  *
  * @author lendle
  */
 public interface Session {
     public void init(SessionConfig sessionConfig);
-    public void run() throws Exception;
+    /**
+     * 
+     * @param mainFekoFile the feko file to be executed; the file will be copied to the target folder
+     * @throws Exception 
+     */
+    public void run(File mainFekoFile) throws Exception;
 }

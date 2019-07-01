@@ -50,7 +50,7 @@ public class OpenMultiFilePostRunnerImpl implements PostRunner {
             @Override
             public void run() {
                 Stage dialog = new Stage();
-                dialog.setWidth(300);
+                dialog.setWidth(800);
                 dialog.setHeight(300);
                 dialog.initStyle(StageStyle.UTILITY);
                 GridPane root=new GridPane();

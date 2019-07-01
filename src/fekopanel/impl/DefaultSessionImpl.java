@@ -13,7 +13,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.application.Application;
 import org.apache.commons.io.FileUtils;
 
 /**
@@ -55,11 +54,14 @@ public class DefaultSessionImpl implements Session{
             }
         }
         
-        sessionConfig.getFekoCommandConfig().setFekoFile(new File(sessionFolder, sessionConfig.getFekoFile().getName()));
     }
 
     @Override
-    public void run() throws Exception {
+    public void run(File mainFekoFile) throws Exception {
+        File fekoFileCopy=new File(sessionFolder, mainFekoFile.getName());
+        FileUtils.copyFileToDirectory(mainFekoFile, sessionFolder);
+        sessionConfig.getFekoCommandConfig().setFekoFile(fekoFileCopy);
+        
         FekoCommand fekoCommand=(FekoCommand) Class.forName(sessionConfig.getFekoCommandConfig().getClassName()).newInstance();
         fekoCommand.init(sessionFolder, sessionConfig.getFekoCommandConfig());
         

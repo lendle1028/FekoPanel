@@ -13,17 +13,8 @@ import java.io.File;
  */
 public class SessionConfig {
     private File [] presetFiles=null;//resource files (feko model file is not included)
-    private File fekoFile=null;//the feko model file which is chosen by user at run time
     private FekoCommandConfig fekoCommandConfig=null;
     private PostRunnerConfig postRunnerConfig=null;
-
-    public File getFekoFile() {
-        return fekoFile;
-    }
-
-    public void setFekoFile(File fekoFile) {
-        this.fekoFile = fekoFile;
-    }
     
     public FekoCommandConfig getFekoCommandConfig() {
         return fekoCommandConfig;

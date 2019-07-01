@@ -6,20 +6,14 @@
 package fekopanel;
 
 import fekopanel.impl.DefaultSessionFactory;
-import java.awt.Desktop;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
@@ -39,7 +33,7 @@ public class FekoPanel1 extends Application {
             public void handle(ActionEvent event) {
                 try {
                     Session session = DefaultSessionFactory.fromJsonFile(new File("fake_multiplefile.json"));
-                    session.run();
+                    session.run(new File("Horn.fek"));
                 } catch (Exception ex) {
                     Logger.getLogger(FekoPanel1.class.getName()).log(Level.SEVERE, null, ex);
                 }

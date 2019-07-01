@@ -1,42 +1,34 @@
 {
-    "presetFiles":["build.xml", "manifest.mf"],
+    "presetFiles":["generate_antenna_png.lua"],
     "fekoCommandConfig":{
-        "className":"fekopanel.impl.FakeFekoCommandImpl"
+        "className":"fekopanel.impl.DefaultFekoCommandImpl",
+        "main":"generate_antenna_png.lua",
+        "args":{
+            "fileName": "${FEKO_FILE_NAME}"
+        }
     },
     "postRunnerConfig":{
         "className":"fekopanel.impl.OpenMultiFilePostRunnerImpl",
         "files": [
             {
-                "label": "A",
-                "name": "build.xml"
+                "label": "temp_Graph1.png",
+                "name": "temp_Graph1.png"
             },
             {
-                "label": "B",
-                "name": "build.xml"
+                "label": "temp_Graph2.png",
+                "name": "temp_Graph2.png"
             },
             {
-                "label": "A",
-                "name": "build.xml"
+                "label": "temp_Graph3.png",
+                "name": "temp_Graph3.png"
             },
             {
-                "label": "B",
-                "name": "build.xml"
+                "label": "temp_Graph4.png",
+                "name": "temp_Graph4.png"
             },
             {
-                "label": "A",
-                "name": "build.xml"
-            },
-            {
-                "label": "B",
-                "name": "build.xml"
-            },
-            {
-                "label": "A",
-                "name": "build.xml"
-            },
-            {
-                "label": "B",
-                "name": "build.xml"
+                "label": "temp_Graph5.png",
+                "name": "temp_Graph5.png"
             }
         ]
     }
