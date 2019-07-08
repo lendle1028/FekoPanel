@@ -23,15 +23,40 @@
                         <Insets left="5.0" right="5.0" />
                      </BorderPane.margin>
                      <font>
-                        <Font name="Bookman Old Style Bold" size="15.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
                </center>
                <right>
                   <Button fx:id="openFileButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleOpenFileAction" text="Open File" BorderPane.alignment="CENTER" />
                </right>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
             </BorderPane>
-            <TitledPane collapsible="false" prefHeight="112.0" prefWidth="289.0" text="01-顯示載具模型(讀取/組合" />
+            <TitledPane collapsible="false" prefHeight="177.0" prefWidth="289.0" text="01-顯示載具模型(讀取/組合">
+               <content>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="01-A-顯示載具模型-上示圖 " />
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="01-B-顯示載具模型-底示圖" GridPane.rowIndex="1" />
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="01-C-顯示載具模型-左示圖 " GridPane.rowIndex="2" />
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="01-E-顯示載具模型-前示圖" GridPane.rowIndex="3" />
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="01-F-顯示載具模型-後示圖" GridPane.rowIndex="4" />
+                     </children>
+                  </GridPane>
+               </content>
+            </TitledPane>
             <TitledPane collapsible="false" prefHeight="152.0" prefWidth="289.0" text="02-檔案紀錄與文件自動產生">
                <content>
                   <GridPane>
@@ -45,16 +70,36 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button fx:id="openAllGraphsButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleOpenAllGraphsAction" text="02D-匯出所有紀錄圖檔" GridPane.hgrow="ALWAYS" />
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Button" GridPane.rowIndex="1" />
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="02A-產生.pfs 紀錄檔" />
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="02B-自動產生報告" GridPane.rowIndex="1" />
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="02C-產生.pfs 紀錄檔與自動產生報告" GridPane.rowIndex="2" />
+                        <Button fx:id="openAllGraphsButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleOpenAllGraphsAction" text="02D-匯出所有紀錄圖檔" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
                      </children>
                   </GridPane>
                </content>
             </TitledPane>
-            <TitledPane collapsible="false" prefHeight="112.0" prefWidth="289.0" text="03-顯示RCS單雙站" />
+            <TitledPane collapsible="false" prefHeight="127.0" prefWidth="289.0" text="03-顯示RCS單雙站">
+               <content>
+                  <GridPane prefWidth="287.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="03-A-顯示2D-RCS單雙站" />
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="03-B-顯示3D-RCS單雙站" GridPane.rowIndex="1" />
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="03-C-顯示3D表面感應電流" GridPane.rowIndex="2" />
+                     </children>
+                  </GridPane>
+               </content>
+            </TitledPane>
          </children>
          <padding>
-            <Insets bottom="10.0" top="10.0" />
+            <Insets bottom="10.0" />
          </padding>
       </VBox>
     </children>
