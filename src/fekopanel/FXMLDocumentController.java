@@ -97,23 +97,28 @@ public class FXMLDocumentController implements Initializable {
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
-                    try {
-                        Session session = DefaultSessionFactory.fromJsonFile(actionFile);
-                        session.run(selectedFile, new Session.Callback() {
-                            @Override
-                            public void onCompleted(Result result) {
-                                try {
-                                    alert.close();
-                                    appFunctionResults.put(functionId, result);
-                                    result.getPostRunner().resume();
-                                } catch (Exception ex) {
-                                    Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-                                }
+                    new Thread() {
+                        public void run() {
+                            try {
+                                Session session = DefaultSessionFactory.fromJsonFile(actionFile);
+                                session.run(selectedFile, new Session.Callback() {
+                                    @Override
+                                    public void onCompleted(Result result) {
+                                        try {
+                                            alert.close();
+                                            appFunctionResults.put(functionId, result);
+                                            result.getPostRunner().resume();
+                                        } catch (Exception ex) {
+                                            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+                                        }
+                                    }
+                                });
+                            } catch (Exception ex) {
+                                Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
                             }
-                        });
-                    } catch (Exception ex) {
-                        Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                        }
+                    }.start();
+
                 }
             });
 
