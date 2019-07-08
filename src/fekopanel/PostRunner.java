@@ -6,7 +6,6 @@
 package fekopanel;
 
 import java.io.File;
-import java.util.Map;
 
 /**
  *
@@ -14,5 +13,9 @@ import java.util.Map;
  */
 public interface PostRunner {
     public void init(File workDir, PostRunnerConfig config) throws Exception;
-    public void run() throws Exception;
+    public void run(Callback callback) throws Exception;
+    public void resume() throws Exception;
+    public interface Callback{
+        public void onCompleted();
+    }
 }
