@@ -15,6 +15,8 @@ import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 
@@ -28,6 +30,12 @@ public class FXMLDocumentController implements Initializable {
     private Pane root = null;
 
     private File selectedFile = null;
+    @FXML
+    private Label label;
+    @FXML
+    private Button openFileButton;
+    @FXML
+    private Button openAllGraphsButton;
 
     @FXML
     private void handleOpenFileAction(ActionEvent event) {
