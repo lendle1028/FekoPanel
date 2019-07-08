@@ -60,12 +60,13 @@ public abstract class AbstractFekoCommandImpl implements FekoCommand {
     public abstract String[] getCommand();
 
     @Override
-    public void run() throws Exception {
+    public void run(Callback callback) throws Exception {
         assignValueToParametersInLua();
         ProcessBuilder pb = new ProcessBuilder(this.getCommand());
         pb.directory(workDir);
         Process process = pb.start();
         process.waitFor();
+        callback.onCompleted();
     }
 
 }

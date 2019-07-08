@@ -26,7 +26,12 @@ public class OpenFilePostRunnerImpl implements PostRunner{
     }
 
     @Override
-    public void run() throws Exception {
+    public void run(Callback callback) throws Exception {
+        callback.onCompleted();
+    }
+
+    @Override
+    public void resume() throws Exception {
         Desktop.getDesktop().open(new File(workDir, fileName));
     }
     

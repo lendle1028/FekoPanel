@@ -18,5 +18,8 @@ public interface Session {
      * @param mainFekoFile the feko file to be executed; the file will be copied to the target folder
      * @throws Exception 
      */
-    public void run(File mainFekoFile) throws Exception;
+    public void run(File mainFekoFile, Callback callback) throws Exception;
+    public interface Callback{
+        public void onCompleted(Result result);
+    }
 }
