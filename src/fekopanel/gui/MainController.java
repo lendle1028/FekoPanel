@@ -29,6 +29,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -131,10 +132,11 @@ public class MainController implements Initializable {
                                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("loading.fxml"));
                                 Parent parent = fxmlLoader.load();
                                 Scene scene = new Scene(parent, 300, 200);
+                                scene.setFill(Color.TRANSPARENT);
                                 loadingDialog = new Stage();
                                 loadingDialog.initModality(Modality.APPLICATION_MODAL);
                                 loadingDialog.setScene(scene);
-                                loadingDialog.initStyle(StageStyle.UNDECORATED);
+                                loadingDialog.initStyle(StageStyle.TRANSPARENT);
                                 loadingDialog.showAndWait();
                             } catch (IOException ex) {
                                 Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
