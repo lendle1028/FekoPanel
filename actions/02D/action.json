@@ -11,23 +11,23 @@
         "className":"fekopanel.impl.OpenMultiFilePostRunnerImpl",
         "files": [
             {
-                "label": "temp_Graph1.png",
+                "label": "載具單/雙站RCS 2D-座標圖",
                 "name": "temp_Graph1.png"
             },
             {
-                "label": "temp_Graph2.png",
+                "label": "載具近場電場2D-座標圖",
                 "name": "temp_Graph2.png"
             },
             {
-                "label": "temp_Graph3.png",
+                "label": "載具3D-示意圖",
                 "name": "temp_Graph3.png"
             },
             {
-                "label": "temp_Graph4.png",
+                "label": "載具單/雙站RCS 3D-示意圖",
                 "name": "temp_Graph4.png"
             },
             {
-                "label": "temp_Graph5.png",
+                "label": "載具近場電場3D-示意圖",
                 "name": "temp_Graph5.png"
             }
         ]

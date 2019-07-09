@@ -18,9 +18,11 @@ import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javax.swing.SwingUtilities;
@@ -47,17 +49,18 @@ public class OpenMultiFilePostRunnerImpl implements PostRunner {
             @Override
             public void run() {
                 dialog = new Stage();
-                dialog.setWidth(800);
+                dialog.setWidth(200);
                 dialog.setHeight(300);
                 dialog.initStyle(StageStyle.UTILITY);
-                GridPane root=new GridPane();
-                root.setHgap(30);
+                VBox root=new VBox();
+                root.setPadding(new Insets(10));
+                root.setSpacing(10);
+                root.setFillWidth(true);
                 for(int i=0; i<files.size(); i++){
-                    int row=i/5;
-                    int column=i%5;
                     final Map<String, String> file=files.get(i);
                     Button button=new Button(file.get("label"));
-                    root.add(button, column, row);
+                    button.setMaxWidth(Double.MAX_VALUE);
+                    root.getChildren().add(button);
                     button.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent event) {
