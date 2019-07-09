@@ -1,0 +1,14 @@
+{
+    "presetFiles":["actions/01A/generate_antenna_png(top-3D-view).lua"],
+    "fekoCommandConfig":{
+        "className":"fekopanel.impl.DefaultFekoCommandImpl",
+        "main":"generate_antenna_png(top-3D-view).lua",
+        "args":{
+            "fileName": "${FEKO_FILE_NAME}"
+        }
+    },
+    "postRunnerConfig":{
+        "className":"fekopanel.impl.OpenFilePostRunnerImpl",
+        "fileName":"載具模型-上示圖1.png"
+    }
+}

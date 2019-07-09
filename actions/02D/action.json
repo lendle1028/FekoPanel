@@ -1,0 +1,35 @@
+{
+    "presetFiles":["actions/02D/generate_antenna_png.lua"],
+    "fekoCommandConfig":{
+        "className":"fekopanel.impl.DefaultFekoCommandImpl",
+        "main":"generate_antenna_png.lua",
+        "args":{
+            "fileName": "${FEKO_FILE_NAME}"
+        }
+    },
+    "postRunnerConfig":{
+        "className":"fekopanel.impl.OpenMultiFilePostRunnerImpl",
+        "files": [
+            {
+                "label": "temp_Graph1.png",
+                "name": "temp_Graph1.png"
+            },
+            {
+                "label": "temp_Graph2.png",
+                "name": "temp_Graph2.png"
+            },
+            {
+                "label": "temp_Graph3.png",
+                "name": "temp_Graph3.png"
+            },
+            {
+                "label": "temp_Graph4.png",
+                "name": "temp_Graph4.png"
+            },
+            {
+                "label": "temp_Graph5.png",
+                "name": "temp_Graph5.png"
+            }
+        ]
+    }
+}
