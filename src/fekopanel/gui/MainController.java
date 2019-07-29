@@ -94,7 +94,70 @@ public class MainController implements Initializable {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    @FXML
+    private void handle01CAction(ActionEvent event) {
+        try {
+            runTask(new File("actions/01C/action.json"), AppFunctions.FUNCTION_01_C);
+        } catch (Exception ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @FXML
+    private void handle01DAction(ActionEvent event) {
+        try {
+            runTask(new File("actions/01D/action.json"), AppFunctions.FUNCTION_01_D);
+        } catch (Exception ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @FXML
+    private void handle01EAction(ActionEvent event) {
+        try {
+            runTask(new File("actions/01E/action.json"), AppFunctions.FUNCTION_01_E);
+        } catch (Exception ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @FXML
+    private void handle01FAction(ActionEvent event) {
+        try {
+            runTask(new File("actions/01F/action.json"), AppFunctions.FUNCTION_01_F);
+        } catch (Exception ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @FXML
+    private void handle03AAction(ActionEvent event) {
+        try {
+            runTask(new File("actions/03A/action.json"), AppFunctions.FUNCTION_03_A);
+        } catch (Exception ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
+    @FXML
+    private void handle03BAction(ActionEvent event) {
+        try {
+            runTask(new File("actions/03B/action.json"), AppFunctions.FUNCTION_03_B);
+        } catch (Exception ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @FXML
+    private void handle03CAction(ActionEvent event) {
+        try {
+            runTask(new File("actions/03C/action.json"), AppFunctions.FUNCTION_03_C);
+        } catch (Exception ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

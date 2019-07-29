@@ -63,6 +63,14 @@ public class DefaultSessionImpl implements Session {
     public void run(File mainFekoFile, Callback callback) throws Exception {
         File fekoFileCopy = new File(sessionFolder, mainFekoFile.getName());
         FileUtils.copyFileToDirectory(mainFekoFile, sessionFolder);
+        //copy other feko dependent files, assume they have the same with the main feko file but has different extensions
+        String fekoFilePrefix=mainFekoFile.getName().substring(0, mainFekoFile.getName().lastIndexOf("."));
+        for(File file : mainFekoFile.getParentFile().listFiles()){
+            if(file.getName().equals(mainFekoFile.getName())==false && file.getName().startsWith(fekoFilePrefix)){
+                FileUtils.copyFileToDirectory(file, sessionFolder);
+            }
+        }
+        
         sessionConfig.getFekoCommandConfig().setFekoFile(fekoFileCopy);
 
         FekoCommand fekoCommand = (FekoCommand) Class.forName(sessionConfig.getFekoCommandConfig().getClassName()).newInstance();

@@ -1,0 +1,23 @@
+{
+    "presetFiles":["actions/03C/generate_antenna_png(表面感應電流).lua"],
+    "fekoCommandConfig":{
+        "className":"fekopanel.impl.DefaultFekoCommandImpl",
+        "main":"generate_antenna_png(表面感應電流).lua",
+        "args":{
+            "fileName": "${FEKO_FILE_NAME}"
+        }
+    },
+    "postRunnerConfig":{
+        "className":"fekopanel.impl.OpenMultiFilePostRunnerImpl",
+        "files": [
+            {
+                "label": "3D-表面感應電流1",
+                "name": "3D-表面感應電流1.png"
+            },
+            {
+                "label": "3D-表面感應電流2",
+                "name": "3D-表面感應電流2.png"
+            }
+        ]
+    }
+}

@@ -52,6 +52,7 @@ public class OpenMultiFilePostRunnerImpl implements PostRunner {
                 dialog.setWidth(200);
                 dialog.setHeight(300);
                 dialog.initStyle(StageStyle.UTILITY);
+                dialog.setAlwaysOnTop(true);
                 VBox root=new VBox();
                 root.setPadding(new Insets(10));
                 root.setSpacing(10);
