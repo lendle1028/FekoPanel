@@ -4,19 +4,35 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fekopanel.gui.FekoFileChooserController">
+<AnchorPane id="AnchorPane" fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fekopanel.gui.FekoFileChooserController">
    <children>
-      <Button layoutX="504.0" layoutY="70.0" mnemonicParsing="false" onAction="#openFekFileAction" prefHeight="23.0" prefWidth="62.0" text="..." />
-      <Label layoutX="51.0" layoutY="74.0" text="Fek File:" />
-      <Label layoutX="51.0" layoutY="127.0" text="Bof File:" />
-      <Label layoutX="51.0" layoutY="185.0" text="Pfs File:" />
-      <TextField fx:id="fekFileTextField" layoutX="106.0" layoutY="70.0" />
-      <TextField fx:id="bofFileText" layoutX="106.0" layoutY="123.0" />
-      <TextField fx:id="pfsFileText" layoutX="106.0" layoutY="181.0" />
-      <Button layoutX="504.0" layoutY="123.0" mnemonicParsing="false" onAction="#openBofFileAction" prefHeight="23.0" prefWidth="62.0" text="..." />
-      <Button layoutX="504.0" layoutY="181.0" mnemonicParsing="false" onAction="#openPfsFileAction" prefHeight="23.0" prefWidth="62.0" text="..." />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2197ff00" height="372.0" layoutX="12.0" layoutY="14.0" stroke="#00000014" strokeType="INSIDE" width="577.0" />
+      <Label layoutX="45.0" layoutY="32.0" text="▼必選檔案" textFill="#2b148fcc">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Line endX="569.0" endY="48.0" layoutX="-7.0" layoutY="-5.0" startX="150.0" startY="48.0" strokeWidth="0.1" />
+      <Button layoutX="504.0" layoutY="80.0" mnemonicParsing="false" onAction="#openFekFileAction" prefHeight="23.0" prefWidth="62.0" text="..." />
+      <Label layoutX="65.0" layoutY="84.0" text="Fek File：" />
+      <Label layoutX="65.0" layoutY="180.0" text="Bof File：" />
+      <Label layoutX="67.0" layoutY="238.0" text="Pfs File：" />
+      <TextField fx:id="fekFileTextField" layoutX="124.0" layoutY="80.0" prefHeight="23.0" prefWidth="372.0" />
+      <TextField fx:id="bofFileText" layoutX="123.0" layoutY="176.0" prefHeight="23.0" prefWidth="372.0" />
+      <TextField fx:id="pfsFileText" layoutX="123.0" layoutY="234.0" prefHeight="23.0" prefWidth="372.0" />
+      <Button layoutX="503.0" layoutY="176.0" mnemonicParsing="false" onAction="#openBofFileAction" prefHeight="23.0" prefWidth="62.0" text="..." />
+      <Button layoutX="503.0" layoutY="234.0" mnemonicParsing="false" onAction="#openPfsFileAction" prefHeight="23.0" prefWidth="62.0" text="..." />
       <Button layoutX="511.0" layoutY="337.0" mnemonicParsing="false" onAction="#cancelAction" text="Cacnel" />
       <Button layoutX="465.0" layoutY="337.0" mnemonicParsing="false" onAction="#okAction" text="Ok" />
+      <Line endX="456.0" endY="19.0" layoutX="106.0" layoutY="120.0" startX="38.0" startY="19.0" strokeWidth="0.1" />
+      <Label layoutX="48.0" layoutY="128.0" text="▼選填檔案" textFill="#2b148fcc">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
