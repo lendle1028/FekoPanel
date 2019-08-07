@@ -68,7 +68,7 @@ public class DefaultSessionImpl implements Session {
         if (fekoFiles.getBofFile() != null) {
             FileUtils.copyFileToDirectory(fekoFiles.getBofFile(), sessionFolder);
         }
-        if (fekoFiles.getBofFile() != null) {
+        if (fekoFiles.getPfsFile() != null) {
             FileUtils.copyFileToDirectory(fekoFiles.getPfsFile(), sessionFolder);
         }
         /*String fekoFilePrefix=mainFekoFile.getName().substring(0, mainFekoFile.getName().lastIndexOf("."));

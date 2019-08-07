@@ -50,5 +50,9 @@ public class FekoFiles {
         this.mainFekoFile = mainFekoFile;
     }
     
-    
+    public void reset(){
+        this.fekFile=null;
+        this.bofFile=null;
+        this.pfsFile=null;
+    }
 }

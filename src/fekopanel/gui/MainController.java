@@ -19,6 +19,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;
+import javafx.beans.binding.BooleanBinding;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -44,32 +45,47 @@ public class MainController implements Initializable {
 
     @FXML
     private Pane root = null;
-
-    private File fekFile = null;
-    private FekoFiles fekoFiles = null;
     @FXML
     private Label filename_text;
     @FXML
-    private Button openFileButton;
+    private Button button01A;
     @FXML
-    private Button openAllGraphsButton;
+    private Button button01B;
+    @FXML
+    private Button button01C;
+    @FXML
+    private Button button01D;
+    @FXML
+    private Button button01E;
+    @FXML
+    private Button button01F;
+    @FXML
+    private Button button02A;
+    @FXML
+    private Button button02B;
+    @FXML
+    private Button button02C;
+    @FXML
+    private Button button02D;
+    @FXML
+    private Button button03A;
+    @FXML
+    private Button button03B;
+    @FXML
+    private Button button03C;
+    @FXML
+    private Button button03D;
 
     private Map<AppFunctions, Result> appFunctionResults = new HashMap<>();
     private Stage loadingDialog = null;
     private Stage fileSelectionDialog = null;
     private FekoFileChooserController fekoFileChooserController = null;
+    private FunctionDisableStateManager functionDisableStateManager = null;
+    private File fekFile = null;
+    private FekoFiles fekoFiles = new FekoFiles();
 
     @FXML
     private void handleOpenFileAction(ActionEvent event) {
-        /*appFunctionResults.clear();
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("fek File", "*.fek"));
-        fileChooser.setInitialDirectory(new File("."));
-        File selectedFile = fileChooser.showOpenDialog(root.getScene().getWindow());
-        if (selectedFile != null) {
-            this.selectedFile = selectedFile;
-            filename_text.setText(selectedFile.getName());
-        }*/
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
@@ -95,10 +111,11 @@ public class MainController implements Initializable {
                             }
                         }
                         fekFile = fekoFileChooserController.getFekFile();
-                        fekoFiles = new FekoFiles();
+                        fekoFiles.reset();
                         fekoFiles.setFekFile(fekoFileChooserController.getFekFile());
                         fekoFiles.setBofFile(fekoFileChooserController.getBofFile());
                         fekoFiles.setPfsFile(fekoFileChooserController.getPfsFile());
+                        functionDisableStateManager.invalidatae();
                     }
                 } catch (IOException ex) {
                     Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
@@ -210,6 +227,22 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        functionDisableStateManager = new FunctionDisableStateManager(fekoFiles);
+        functionDisableStateManager.addBinding("button01A", button01A, new String[]{"fek", "bof"});
+        functionDisableStateManager.addBinding("button01B", button01B, new String[]{"fek", "bof"});
+        functionDisableStateManager.addBinding("button01C", button01C, new String[]{"fek", "bof"});
+        functionDisableStateManager.addBinding("button01D", button01D, new String[]{"fek", "bof"});
+        functionDisableStateManager.addBinding("button01E", button01E, new String[]{"fek", "bof"});
+        functionDisableStateManager.addBinding("button01F", button01F, new String[]{"fek", "bof"});
+        
+        functionDisableStateManager.addBinding("button02A", button02A, new String[]{"fek", "bof", "pfs"});
+        functionDisableStateManager.addBinding("button02B", button02B, new String[]{"fek", "bof", "pfs"});
+        functionDisableStateManager.addBinding("button02C", button02C, new String[]{"fek", "bof", "pfs"});
+        functionDisableStateManager.addBinding("button02D", button02D, new String[]{"fek", "bof"});
+        
+        functionDisableStateManager.addBinding("button03A", button03A, new String[]{"fek", "bof"});
+        functionDisableStateManager.addBinding("button03B", button03B, new String[]{"fek", "bof"});
+        functionDisableStateManager.addBinding("button03C", button03C, new String[]{"fek", "bof"});
     }
 
     private void runTask(File actionFile, AppFunctions functionId) throws Exception {
