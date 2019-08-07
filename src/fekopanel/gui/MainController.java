@@ -86,12 +86,15 @@ public class MainController implements Initializable {
                     fileSelectionDialog.showAndWait();
                     if (fekoFileChooserController.isOk()) {
                         File selectedFile = fekoFileChooserController.getFekFile();
-                        if (selectedFile != null && selectedFile.equals(fekFile) == false) {
-                            //if the selected fek file is different,
-                            //app function results cache must be cleared
-                            appFunctionResults.clear();
+                        if (selectedFile != null) {
+                            filename_text.setText(selectedFile.getName());
+                            if (selectedFile.equals(fekFile) == false) {
+                                //if the selected fek file is different,
+                                //app function results cache must be cleared
+                                appFunctionResults.clear();
+                            }
                         }
-                        fekFile=fekoFileChooserController.getFekFile();
+                        fekFile = fekoFileChooserController.getFekFile();
                         fekoFiles = new FekoFiles();
                         fekoFiles.setFekFile(fekoFileChooserController.getFekFile());
                         fekoFiles.setBofFile(fekoFileChooserController.getBofFile());
