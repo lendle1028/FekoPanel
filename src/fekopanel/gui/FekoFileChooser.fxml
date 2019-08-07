@@ -7,12 +7,16 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fekopanel.gui.FekoFileChooserController">
    <children>
-      <Button layoutX="438.0" layoutY="58.0" mnemonicParsing="false" text="Button" />
+      <Button layoutX="504.0" layoutY="70.0" mnemonicParsing="false" onAction="#openFekFileAction" prefHeight="23.0" prefWidth="62.0" text="..." />
       <Label layoutX="51.0" layoutY="74.0" text="Fek File:" />
       <Label layoutX="51.0" layoutY="127.0" text="Bof File:" />
       <Label layoutX="51.0" layoutY="185.0" text="Pfs File:" />
       <TextField fx:id="fekFileTextField" layoutX="106.0" layoutY="70.0" />
       <TextField fx:id="bofFileText" layoutX="106.0" layoutY="123.0" />
       <TextField fx:id="pfsFileText" layoutX="106.0" layoutY="181.0" />
+      <Button layoutX="504.0" layoutY="123.0" mnemonicParsing="false" onAction="#openBofFileAction" prefHeight="23.0" prefWidth="62.0" text="..." />
+      <Button layoutX="504.0" layoutY="181.0" mnemonicParsing="false" onAction="#openPfsFileAction" prefHeight="23.0" prefWidth="62.0" text="..." />
+      <Button layoutX="511.0" layoutY="337.0" mnemonicParsing="false" onAction="#cancelAction" text="Cacnel" />
+      <Button layoutX="465.0" layoutY="337.0" mnemonicParsing="false" onAction="#okAction" text="Ok" />
    </children>
 </AnchorPane>

@@ -5,8 +5,10 @@
  */
 package fekopanel.gui;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
@@ -31,4 +33,49 @@ public class FekoFileChooserController implements Initializable {
         // TODO
     }    
     
+    public File getFekFile(){
+        if(fekFileText.getText()==null || fekFileText.getText().isEmpty()){
+            return null;
+        }
+        return new File(fekFileText.getText());
+    }
+    
+    public File getBofFile(){
+        if(bofFileText.getText()==null || bofFileText.getText().isEmpty()){
+            return null;
+        }
+        return new File(bofFileText.getText());
+    }
+    
+    public File getPfsFile(){
+        if(pfsFileText.getText()==null || pfsFileText.getText().isEmpty()){
+            return null;
+        }
+        return new File(pfsFileText.getText());
+    }
+    
+    @FXML
+    public void openFekFileAction(ActionEvent event){
+        
+    }
+    
+    @FXML
+    public void openBofFileAction(ActionEvent event){
+        
+    }
+    
+    @FXML
+    public void openPfsFileAction(ActionEvent event){
+        
+    }
+    
+    @FXML
+    public void okAction(ActionEvent event){
+        
+    }
+    
+    @FXML
+    public void cancelAction(ActionEvent event){
+        
+    }
 }
