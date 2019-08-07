@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fekopanel.gui.FekoFileChooserController">
+<AnchorPane id="AnchorPane" fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fekopanel.gui.FekoFileChooserController">
    <children>
       <Button layoutX="504.0" layoutY="70.0" mnemonicParsing="false" onAction="#openFekFileAction" prefHeight="23.0" prefWidth="62.0" text="..." />
       <Label layoutX="51.0" layoutY="74.0" text="Fek File:" />

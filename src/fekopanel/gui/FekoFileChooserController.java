@@ -12,6 +12,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
+import javafx.stage.FileChooser;
 
 /**
  * FXML Controller class
@@ -25,6 +27,8 @@ public class FekoFileChooserController implements Initializable {
     private TextField bofFileText;
     @FXML
     private TextField pfsFileText;
+    @FXML
+    private Pane root;
     /**
      * Initializes the controller class.
      */
@@ -77,5 +81,16 @@ public class FekoFileChooserController implements Initializable {
     @FXML
     public void cancelAction(ActionEvent event){
         
+    }
+    
+    private void openFileChooser(String extension, TextField container){
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter(extension+" File", "*."+extension));
+        fileChooser.setInitialDirectory(new File("."));
+        File selectedFile = fileChooser.showOpenDialog(root.getScene().getWindow());
+        if (selectedFile != null) {
+            /*this.selectedFile = selectedFile;
+            filename_text.setText(selectedFile.getName());*/
+        }
     }
 }
