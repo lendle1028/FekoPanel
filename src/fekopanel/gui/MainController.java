@@ -245,8 +245,8 @@ public class MainController implements Initializable {
         functionDisableStateManager.addBinding("button01E", button01E, new String[]{"fek", "bof"});
         functionDisableStateManager.addBinding("button01F", button01F, new String[]{"fek", "bof"});
         
-        functionDisableStateManager.addBinding("button02A", button02A, new String[]{"fek", "bof", "pfs"});
-        functionDisableStateManager.addBinding("button02B", button02B, new String[]{"fek", "bof", "pfs"});
+        /*functionDisableStateManager.addBinding("button02A", button02A, new String[]{"fek", "bof", "pfs"});
+        functionDisableStateManager.addBinding("button02B", button02B, new String[]{"fek", "bof", "pfs"});*/
         functionDisableStateManager.addBinding("button02C", button02C, new String[]{"fek", "bof"});
         functionDisableStateManager.addBinding("button02D", button02D, new String[]{"fek", "bof"});
         
