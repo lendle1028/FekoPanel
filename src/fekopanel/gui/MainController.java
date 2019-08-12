@@ -125,6 +125,16 @@ public class MainController implements Initializable {
     }
 
     @FXML
+    private void handle02CAction(ActionEvent event) {
+        try {
+            fekoFiles.setMainFekoFile(fekoFiles.getFekFile());
+            runTask(new File("actions/02C/action.json"), AppFunctions.FUNCTION_02_C);
+        } catch (Exception ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @FXML
     private void handle02DAction(ActionEvent event) {
         try {
             fekoFiles.setMainFekoFile(fekoFiles.getFekFile());
@@ -237,7 +247,7 @@ public class MainController implements Initializable {
         
         functionDisableStateManager.addBinding("button02A", button02A, new String[]{"fek", "bof", "pfs"});
         functionDisableStateManager.addBinding("button02B", button02B, new String[]{"fek", "bof", "pfs"});
-        functionDisableStateManager.addBinding("button02C", button02C, new String[]{"fek", "bof", "pfs"});
+        functionDisableStateManager.addBinding("button02C", button02C, new String[]{"fek", "bof"});
         functionDisableStateManager.addBinding("button02D", button02D, new String[]{"fek", "bof"});
         
         functionDisableStateManager.addBinding("button03A", button03A, new String[]{"fek", "bof"});

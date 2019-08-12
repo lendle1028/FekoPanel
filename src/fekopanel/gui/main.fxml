@@ -74,7 +74,7 @@
                      <children>
                         <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="02A-產生pfs 紀錄檔" fx:id="button02A"/>
                         <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="02B-產生pdf報告檔" GridPane.rowIndex="1" fx:id="button02B"/>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="02C-產生pfs 紀錄檔與產生pdf報告檔" GridPane.rowIndex="2" fx:id="button02C"/>
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle02CAction" text="02C-產生pfs 紀錄檔與產生pdf報告檔" GridPane.rowIndex="2" fx:id="button02C"/>
                         <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle02DAction" text="02D-匯出所有紀錄圖檔" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" fx:id="button02D"/>
                      </children>
                   </GridPane>
