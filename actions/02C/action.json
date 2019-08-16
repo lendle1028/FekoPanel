@@ -4,11 +4,12 @@
         "className":"fekopanel.impl.DefaultFekoCommandImpl",
         "main":"generate_antenna_report_memo.lua",
         "args":{
-            "fileName": "${FEKO_FILE_NAME}"
+            "fileName": "${FEKO_FILE_NAME}",
+            "modelName": "${FEKO_MODEL_NAME}"
         }
     },
     "postRunnerConfig":{
         "className":"fekopanel.impl.OpenFilePostRunnerImpl",
-		"fileName":"AntennaQuickReport.pdf"
+		"fileName":"RCS_report.pdf"
     }
 }

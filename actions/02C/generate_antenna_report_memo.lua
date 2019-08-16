@@ -7,59 +7,50 @@ views are then exported to a PDF report
 ]]--
 
 modelName = {}
-modelName[1] = "Horn"
+modelName[1] = "${modelName}"
 
+app = pf.GetApplication()
+app:NewProject()
+app:OpenFile(modelName[1]..".fek")
 
-    app = pf.GetApplication()
-    app:NewProject()
-    app:OpenFile("${fileName}")
+selectedModel   = app.Models[modelName[1]]
+selectedConfig1 = selectedModel.Configurations[1]
 
-    selectedModel   = app.Models[1]
-    selectedConfig1 = selectedModel.Configurations[1]
+ffData      = selectedConfig1.FarFields[1] -- This is a handle on the far field data itself
 
-    ffData      = selectedConfig1.FarFields[1] -- This is a handle on the far field data itself
+view3D = app.Views[1]
+ffPlot = view3D.Plots:Add(ffData)
+ffPlot.Label = "ff3D"
+ffPlot.Quantity.ValuesScaledToDB = true
 
-    view3D = app.Views[1]
-    view3D.MeshRendering.ModelOpacity = 60
-    ffPlot = view3D.Plots:Add(ffData)
-    ffPlot.Label = "ff3D"
-    ffPlot.Quantity.ValuesScaledToDB = true
-    view3D:ZoomToExtents()
+view3D_top = view3D:Duplicate() 
+view3D_top:SetViewDirection(pf.Enums.ViewDirectionEnum.Top)
 
-    view3D_top = view3D:Duplicate() 
-    view3D_top:SetViewDirection(pf.Enums.ViewDirectionEnum.Top)
-    view3D_top:ZoomToExtents()
+view3D_right = view3D:Duplicate()
+view3D_right:SetViewDirection(pf.Enums.ViewDirectionEnum.Bottom)
 
-    view3D_right = view3D:Duplicate()
-    view3D_right:SetViewDirection(pf.Enums.ViewDirectionEnum.Right)
-    view3D_right:ZoomToExtents()
+view3D_right = view3D:Duplicate()
+view3D_right:SetViewDirection(pf.Enums.ViewDirectionEnum.Left)
 
-    view3D_front = view3D:Duplicate()
-    view3D_front:SetViewDirection(pf.Enums.ViewDirectionEnum.Front)
-    view3D_front:ZoomToExtents()
+view3D_right = view3D:Duplicate()
+view3D_right:SetViewDirection(pf.Enums.ViewDirectionEnum.Right)
 
-    polarGraph = app.PolarGraphs:Add()
-    ffTracePhi_00 = polarGraph.Traces:Add(ffData)
-    ffTracePhi_00.IndependentAxis = "Theta (wrapped)"
-    ffTracePhi_00.Quantity.ValuesScaledToDB = true
-    ffTracePhi_90 = polarGraph.Traces:Add(ffData)
-    ffTracePhi_90.IndependentAxis = "Theta (wrapped)"
-    ffTracePhi_90.Quantity.ValuesScaledToDB = true
-    ffTracePhi_90:SetFixedAxisValue(ffTracePhi_90.FixedAxes[2],90,"deg")
-    polarGraph:ZoomToExtents()
-    polarGraph.Title.Text = "Gain"
-    polarGraph.Legend.Position = pf.Enums.GraphLegendPositionEnum.OverlayTopRight
-    polarGraph.BackColour = pf.Enums.ColourEnum.LightGrey
-    polarGraph:Restore()
+view3D_front = view3D:Duplicate()
+view3D_front:SetViewDirection(pf.Enums.ViewDirectionEnum.Front)
 
-    quickReport = app:CreateQuickReport("AntennaQuickReport", 
-                                            pf.Enums.ReportDocumentTypeEnum.PDF)
-    quickReport.DocumentHeading = "Antenna: Automated Quick Report"
-    quickReport:SetPageTitle(view3D.WindowTitle, "Isometric View")
-    quickReport:SetPageTitle(view3D_top.WindowTitle, "Top View")
-    quickReport:SetPageTitle(view3D_right.WindowTitle, "Right View")
-    quickReport:SetPageTitle(view3D_front.WindowTitle, "Front View")
-    quickReport:SetPageTitle(polarGraph.WindowTitle, "Theta Cuts")
-    quickReport:Generate()
-    
-    --app:SaveAs(modelName[index].."AutomatedSession.pfs")
+view3D_right = view3D:Duplicate()
+view3D_right:SetViewDirection(pf.Enums.ViewDirectionEnum.Back)
+
+polarGraph = app.PolarGraphs:Add()
+ffTracePhi_00 = polarGraph.Traces:Add(ffData)
+ffTracePhi_00.Quantity.Type = pf.Enums.FarFieldQuantityTypeEnum.RCS
+ffTracePhi_00.Quantity.Component = pf.Enums.FarFieldQuantityComponentEnum.Total
+ffTracePhi_00.Quantity.ValuesScaledToDB = true
+ 
+report = app:CreateQuickReport("RCS_report", 
+                                        pf.Enums.ReportDocumentTypeEnum.PDF)
+report.DocumentHeading = "RCS_report"
+
+    -- Generate the document
+
+report:GenerateAndOpen()

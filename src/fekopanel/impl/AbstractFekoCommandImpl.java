@@ -35,7 +35,11 @@ public abstract class AbstractFekoCommandImpl implements FekoCommand {
                 String value = _args.get(key);
                 if ("${FEKO_FILE_NAME}".equals(value)) {
                     args.put(key, config.getFekoFile().getName());
-                } else {
+                }else if ("${FEKO_MODEL_NAME}".equals(value)) {
+                    String modelName=config.getFekoFile().getName();
+                    int index=modelName.lastIndexOf(".");
+                    args.put(key, modelName.substring(0, index));
+                }else {
                     args.put(key, value);
                 }
             }
