@@ -60,6 +60,8 @@ public class MainController implements Initializable {
     @FXML
     private Button button01F;
     @FXML
+    private Button button01G;
+    @FXML
     private Button button02A;
     @FXML
     private Button button02B;
@@ -133,7 +135,7 @@ public class MainController implements Initializable {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @FXML
     private void handle02DAction(ActionEvent event) {
         try {
@@ -205,6 +207,16 @@ public class MainController implements Initializable {
     }
 
     @FXML
+    private void handle01GAction(ActionEvent event) {
+        try {
+            fekoFiles.setMainFekoFile(fekoFiles.getFekFile());
+            runTask(new File("actions/01G/action.json"), AppFunctions.FUNCTION_01_G, false);
+        } catch (Exception ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
     private void handle03AAction(ActionEvent event) {
         try {
             fekoFiles.setMainFekoFile(fekoFiles.getFekFile());
@@ -244,18 +256,23 @@ public class MainController implements Initializable {
         functionDisableStateManager.addBinding("button01D", button01D, new String[]{"fek", "bof"});
         functionDisableStateManager.addBinding("button01E", button01E, new String[]{"fek", "bof"});
         functionDisableStateManager.addBinding("button01F", button01F, new String[]{"fek", "bof"});
-        
+        functionDisableStateManager.addBinding("button01F", button01G, new String[]{"fek"});
+
         /*functionDisableStateManager.addBinding("button02A", button02A, new String[]{"fek", "bof", "pfs"});
         functionDisableStateManager.addBinding("button02B", button02B, new String[]{"fek", "bof", "pfs"});*/
         functionDisableStateManager.addBinding("button02C", button02C, new String[]{"fek", "bof"});
         functionDisableStateManager.addBinding("button02D", button02D, new String[]{"fek", "bof"});
-        
+
         functionDisableStateManager.addBinding("button03A", button03A, new String[]{"fek", "bof"});
         functionDisableStateManager.addBinding("button03B", button03B, new String[]{"fek", "bof"});
         functionDisableStateManager.addBinding("button03C", button03C, new String[]{"fek", "bof"});
     }
 
     private void runTask(File actionFile, AppFunctions functionId) throws Exception {
+        this.runTask(actionFile, functionId, true);
+    }
+
+    private void runTask(File actionFile, AppFunctions functionId, boolean showLoading) throws Exception {
         //check whether the fek file is selected or not
         if (fekFile == null) {
             Platform.runLater(new Runnable() {
@@ -278,28 +295,30 @@ public class MainController implements Initializable {
             }
         } else {
             //otherwise, we have to execute the corresponding feko commands
-            new Thread() {
-                public void run() {
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("loading.fxml"));
-                                Parent parent = fxmlLoader.load();
-                                Scene scene = new Scene(parent, 300, 200);
-                                scene.setFill(Color.TRANSPARENT);
-                                loadingDialog = new Stage();
-                                loadingDialog.initModality(Modality.APPLICATION_MODAL);
-                                loadingDialog.setScene(scene);
-                                loadingDialog.initStyle(StageStyle.TRANSPARENT);
-                                loadingDialog.showAndWait();
-                            } catch (IOException ex) {
-                                Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+            if (showLoading) {
+                new Thread() {
+                    public void run() {
+                        Platform.runLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("loading.fxml"));
+                                    Parent parent = fxmlLoader.load();
+                                    Scene scene = new Scene(parent, 300, 200);
+                                    scene.setFill(Color.TRANSPARENT);
+                                    loadingDialog = new Stage();
+                                    loadingDialog.initModality(Modality.APPLICATION_MODAL);
+                                    loadingDialog.setScene(scene);
+                                    loadingDialog.initStyle(StageStyle.TRANSPARENT);
+                                    loadingDialog.showAndWait();
+                                } catch (IOException ex) {
+                                    Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+                                }
                             }
-                        }
-                    });
-                }
-            }.start();
+                        });
+                    }
+                }.start();
+            }
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
@@ -311,12 +330,14 @@ public class MainController implements Initializable {
                                     @Override
                                     public void onCompleted(Result result) {
                                         try {
-                                            Platform.runLater(new Runnable() {
-                                                @Override
-                                                public void run() {
-                                                    loadingDialog.close();
-                                                }
-                                            });
+                                            if (showLoading) {
+                                                Platform.runLater(new Runnable() {
+                                                    @Override
+                                                    public void run() {
+                                                        loadingDialog.close();
+                                                    }
+                                                });
+                                            }
                                             appFunctionResults.put(functionId, result);
                                             result.getPostRunner().resume();
                                         } catch (Exception ex) {

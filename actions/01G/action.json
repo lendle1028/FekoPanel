@@ -1,0 +1,13 @@
+{
+    "presetFiles":["actions/02D/generate_antenna_png.lua"],
+    "fekoCommandConfig":{
+        "className":"fekopanel.impl.OpenFekoApplicationFekoCommandImpl",
+        "main":"generate_antenna_png.lua",
+        "args":{
+            "fileName": "${FEKO_FILE_NAME}"
+        }
+    },
+    "postRunnerConfig":{
+        "className":"fekopanel.impl.NoopPostRunnerImpl"
+    }
+}
