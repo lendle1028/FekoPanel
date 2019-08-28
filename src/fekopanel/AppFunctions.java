@@ -17,6 +17,7 @@ public enum AppFunctions {
     FUNCTION_01_E,
     FUNCTION_01_F,
     FUNCTION_01_G,
+    FUNCTION_01_H,
     FUNCTION_02_A,
     FUNCTION_02_B,
     FUNCTION_02_C,

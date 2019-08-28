@@ -62,6 +62,8 @@ public class MainController implements Initializable {
     @FXML
     private Button button01G;
     @FXML
+    private Button button01H;
+    @FXML
     private Button button02A;
     @FXML
     private Button button02B;
@@ -210,7 +212,17 @@ public class MainController implements Initializable {
     private void handle01GAction(ActionEvent event) {
         try {
             fekoFiles.setMainFekoFile(fekoFiles.getFekFile());
-            runTask(new File("actions/01G/action.json"), AppFunctions.FUNCTION_01_G, false);
+            runTask(new File("actions/01G/action.json"), AppFunctions.FUNCTION_01_G, true);
+        } catch (Exception ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @FXML
+    private void handle01HAction(ActionEvent event) {
+        try {
+            fekoFiles.setMainFekoFile(fekoFiles.getFekFile());
+            runTask(new File("actions/01H/action.json"), AppFunctions.FUNCTION_01_H, false);
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -256,7 +268,8 @@ public class MainController implements Initializable {
         functionDisableStateManager.addBinding("button01D", button01D, new String[]{"fek", "bof"});
         functionDisableStateManager.addBinding("button01E", button01E, new String[]{"fek", "bof"});
         functionDisableStateManager.addBinding("button01F", button01F, new String[]{"fek", "bof"});
-        functionDisableStateManager.addBinding("button01F", button01G, new String[]{"fek"});
+        functionDisableStateManager.addBinding("button01G", button01G, new String[]{"fek", "bof", "pfs"});
+        functionDisableStateManager.addBinding("button01H", button01H, new String[]{"fek"});
 
         /*functionDisableStateManager.addBinding("button02A", button02A, new String[]{"fek", "bof", "pfs"});
         functionDisableStateManager.addBinding("button02B", button02B, new String[]{"fek", "bof", "pfs"});*/
@@ -319,13 +332,16 @@ public class MainController implements Initializable {
                     }
                 }.start();
             }
+            //System.out.println(1);
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
                     new Thread() {
                         public void run() {
                             try {
+                                //System.out.println(2);
                                 Session session = DefaultSessionFactory.fromJsonFile(actionFile);
+                                //System.out.println(3);
                                 session.run(fekoFiles, new Session.Callback() {
                                     @Override
                                     public void onCompleted(Result result) {

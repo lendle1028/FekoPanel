@@ -5,6 +5,11 @@
  */
 package fekopanel.impl;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author lendle
@@ -13,13 +18,17 @@ public class DefaultFekoCommandImpl extends AbstractFekoCommandImpl{
 
     @Override
     public String[] getCommand() {
-        return new String[]{
-            "postfeko", 
-            this.fekoCommandConfig.getFekoFile().getName(), 
-            "--run-script",
-            this.fekoCommandConfig.getMainLuaFile(),
-            "--non-interactive"
-        };
+        try {
+            return new String[]{
+                "postfeko",
+                this.fekoCommandConfig.getFekoFile().getName(),
+                "--run-script",
+                "\""+new File(this.workDir, this.fekoCommandConfig.getMainLuaFile()).getCanonicalPath()+"\"",
+                "--non-interactive"
+            };
+        } catch (IOException ex) {
+            return null;
+        }
     }
     
 }

@@ -8,9 +8,9 @@ package fekopanel.impl;
 import fekopanel.FekoCommand;
 import fekopanel.FekoFiles;
 import fekopanel.PostRunner;
-import fekopanel.Result;
 import fekopanel.Session;
 import fekopanel.SessionConfig;
+import fekopanel.utils.FasterFileUtils;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -62,29 +62,30 @@ public class DefaultSessionImpl implements Session {
 
     @Override
     public void run(FekoFiles fekoFiles, Callback callback) throws Exception {
-        File fekoFileCopy = new File(sessionFolder, fekoFiles.getMainFekoFile().getName());
+        //the file copy version (too slow)
+        /*File fekoFileCopy = new File(sessionFolder, fekoFiles.getMainFekoFile().getName());
         //copy feko dependent files
-        FileUtils.copyFileToDirectory(fekoFiles.getFekFile(), sessionFolder);
+        //System.out.println(4);
+        FasterFileUtils.copyFileToDirectory(fekoFiles.getFekFile(), sessionFolder);
         if (fekoFiles.getBofFile() != null) {
-            FileUtils.copyFileToDirectory(fekoFiles.getBofFile(), sessionFolder);
+            FasterFileUtils.copyFileToDirectory(fekoFiles.getBofFile(), sessionFolder);
         }
         if (fekoFiles.getPfsFile() != null) {
-            FileUtils.copyFileToDirectory(fekoFiles.getPfsFile(), sessionFolder);
+            FasterFileUtils.copyFileToDirectory(fekoFiles.getPfsFile(), sessionFolder);
         }
-        /*String fekoFilePrefix=mainFekoFile.getName().substring(0, mainFekoFile.getName().lastIndexOf("."));
-        for(File file : mainFekoFile.getParentFile().listFiles()){
-            if(file.getName().equals(mainFekoFile.getName())==false && file.getName().startsWith(fekoFilePrefix)){
-                FileUtils.copyFileToDirectory(file, sessionFolder);
-            }
-        }*/
-        sessionConfig.getFekoCommandConfig().setFekoFile(fekoFileCopy);
+        //System.out.println(5);
+        sessionConfig.getFekoCommandConfig().setFekoFile(fekoFileCopy);*/
+        
+        
+        
+        sessionConfig.getFekoCommandConfig().setFekoFile(fekoFiles.getMainFekoFile());
 
         FekoCommand fekoCommand = (FekoCommand) Class.forName(sessionConfig.getFekoCommandConfig().getClassName()).newInstance();
         fekoCommand.init(sessionFolder, sessionConfig.getFekoCommandConfig());
 
         PostRunner postRunner = (PostRunner) Class.forName(sessionConfig.getPostRunnerConfig().getClassName()).newInstance();
         postRunner.init(sessionFolder, sessionConfig.getPostRunnerConfig());
-
+        //System.out.println(6);
         fekoCommand.run(new FekoCommand.Callback() {
             @Override
             public void onCompleted() {

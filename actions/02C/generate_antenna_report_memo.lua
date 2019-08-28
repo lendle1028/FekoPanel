@@ -11,7 +11,7 @@ modelName[1] = "${modelName}"
 
 app = pf.GetApplication()
 app:NewProject()
-app:OpenFile(modelName[1]..".fek")
+app:OpenFile("${fileName}")
 
 selectedModel   = app.Models[modelName[1]]
 selectedConfig1 = selectedModel.Configurations[1]

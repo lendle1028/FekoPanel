@@ -45,6 +45,7 @@ public class DefaultSessionFactory {
         PostRunnerConfig postRunnerConfig=new PostRunnerConfig();
         postRunnerConfig.setClassName((String) postRunnerConfigMap.get("className"));
         postRunnerConfig.setProperties(postRunnerConfigMap);
+        postRunnerConfig.setFekoCommandConfig(fekoCommandConfig);
         sessionConfig.setPostRunnerConfig(postRunnerConfig);
         
         DefaultSessionImpl session=new DefaultSessionImpl();
