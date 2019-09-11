@@ -34,7 +34,7 @@
                   <Insets />
                </VBox.margin>
             </BorderPane>
-            <TitledPane collapsible="false" prefHeight="197.0" prefWidth="302.0" text="01-顯示載具模型(讀取/組合">
+            <TitledPane collapsible="false" prefHeight="254.0" prefWidth="302.0" text="01-顯示載具模型(讀取/組合">
                <content>
                   <GridPane prefHeight="152.0" prefWidth="300.0">
                     <columnConstraints>
@@ -63,15 +63,13 @@
                   </GridPane>
                </content>
             </TitledPane>
-            <TitledPane collapsible="false" prefHeight="152.0" prefWidth="289.0" text="02-檔案紀錄與文件產生">
+            <TitledPane collapsible="false" prefHeight="89.0" prefWidth="302.0" text="02-檔案紀錄與文件產生">
                <content>
-                  <GridPane>
+                  <GridPane prefHeight="78.0" prefWidth="300.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="ALWAYS" />
                     </columnConstraints>
                     <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
@@ -80,8 +78,8 @@
                         <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="02B-產生pdf報告檔" GridPane.rowIndex="1" fx:id="button02B"/>
                         <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle02CAction" text="02C-產生pfs 紀錄檔與產生pdf報告檔" GridPane.rowIndex="2" fx:id="button02C"/>
                         <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle02DAction" text="02D-匯出所有紀錄圖檔" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" fx:id="button02D"/-->
-                        <Button fx:id="button02C" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle02CAction" text="02B-產生pdf報告檔" GridPane.rowIndex="1" />
-                        <Button fx:id="button02D" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle02DAction" text="02D-匯出所有紀錄圖檔" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+                        <Button fx:id="button02C" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle02CAction" text="02B-產生pdf報告檔" />
+                        <Button fx:id="button02D" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle02DAction" text="02D-匯出所有紀錄圖檔" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                </content>
