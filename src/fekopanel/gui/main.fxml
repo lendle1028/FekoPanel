@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="root" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fekopanel.gui.MainController">
+<AnchorPane id="AnchorPane" fx:id="root" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="620.0" prefWidth="311.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fekopanel.gui.MainController">
     <children>
-      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+      <VBox layoutX="5.0" layoutY="7.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="605.0" prefWidth="302.0" spacing="10.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="7.0">
          <children>
             <BorderPane prefHeight="30.0" prefWidth="200.0">
                <center>
@@ -34,9 +34,9 @@
                   <Insets />
                </VBox.margin>
             </BorderPane>
-            <TitledPane collapsible="false" prefHeight="177.0" prefWidth="289.0" text="01-顯示載具模型(讀取/組合">
+            <TitledPane collapsible="false" prefHeight="197.0" prefWidth="302.0" text="01-顯示載具模型(讀取/組合">
                <content>
-                  <GridPane>
+                  <GridPane prefHeight="152.0" prefWidth="300.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
@@ -95,6 +95,21 @@
                         <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle03AAction" text="03-A-顯示單/雙站 2D RCS" />
                         <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle03BAction" text="03-B-顯示單/雙站 3D RCS" GridPane.rowIndex="1" />
                         <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle03CAction" text="03-C-顯示3D表面感應電流" GridPane.rowIndex="2" />
+                     </children>
+                  </GridPane>
+               </content>
+            </TitledPane>
+            <TitledPane collapsible="false" prefHeight="59.0" prefWidth="302.0" text="04-PDF CDF">
+               <content>
+                  <GridPane prefHeight="24.0" prefWidth="300.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle03AAction" text="04-A-Statistics_CDF" />
                      </children>
                   </GridPane>
                </content>
