@@ -9,8 +9,10 @@ import fekopanel.FekoCommand;
 import fekopanel.FekoCommandConfig;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Logger;
 import org.apache.commons.io.FileUtils;
 
 /**
@@ -34,8 +36,14 @@ public abstract class AbstractFekoCommandImpl implements FekoCommand {
             for (String key : _args.keySet()) {
                 String value = _args.get(key);
                 if ("${FEKO_FILE_NAME}".equals(value)) {
-                    args.put(key, config.getFekoFile().getName());
-                } else {
+                    args.put(key, config.getFekoFile().getCanonicalPath().replace("\\", "/"));
+                }else if ("${FEKO_MODEL_NAME}".equals(value)) {
+                    String modelName=config.getFekoFile().getName();
+                    int index=modelName.lastIndexOf(".");
+                    args.put(key, modelName.substring(0, index));
+                }else if ("${DIR}".equals(value)) {
+                    args.put(key, workDir.getCanonicalPath().replace("\\", "/"));
+                }else {
                     args.put(key, value);
                 }
             }
@@ -63,7 +71,9 @@ public abstract class AbstractFekoCommandImpl implements FekoCommand {
     public void run(Callback callback) throws Exception {
         assignValueToParametersInLua();
         ProcessBuilder pb = new ProcessBuilder(this.getCommand());
-        pb.directory(workDir);
+        Logger.getLogger(this.getClass().getName()).info("executing command: "+Arrays.deepToString(this.getCommand()));
+        pb.directory(fekoCommandConfig.getFekoFile().getParentFile());
+        pb.redirectErrorStream();
         Process process = pb.start();
         process.waitFor();
         callback.onCompleted();

@@ -4,7 +4,7 @@ modelName[2] = "Patch"
 
 app = pf.GetApplication()
 app:NewProject()
-app:OpenFile("Horn.fek")--Horn.fek
+app:OpenFile("C:/Users/lendle/Documents/NetBeansProjects/FekoPanel/Horn.fek")--Horn.fek
 
 
     -- Create graphs 
@@ -12,11 +12,11 @@ app:OpenFile("Horn.fek")--Horn.fek
 
     -- Create 3D Views
     view3D = app.Views[1]
-    view3D:SetViewDirection(pf.Enums.ViewDirectionEnum.Top)  
+    view3D:SetViewDirection(pf.Enums.ViewDirectionEnum.Bottom)  
  
     -- Export all graphs in the 'CartesianGraphCollection'
 
 for index, graph in pairs(app.Windows) do
     graph:Maximise()
-    graph:ExportImage("載具模型-上示圖"..index, "png")
+    graph:ExportImage("載具模型-底示圖"..index, "png")
 end

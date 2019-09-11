@@ -1,0 +1,40 @@
+{
+    "presetFiles":["actions/01G/generate_antenna_png.lua"],
+    "fekoCommandConfig":{
+        "className":"fekopanel.impl.DefaultFekoCommandImpl",
+        "main":"generate_antenna_png.lua",
+        "args":{
+            "fileName": "${FEKO_FILE_NAME}",
+            "dir": "${DIR}"
+        }
+    },
+    "postRunnerConfig":{
+        "className":"fekopanel.impl.OpenMultiFilePostRunnerImpl",
+        "files": [
+            {
+                "label": "載具模型-top.png",
+                "name": "載具模型-top.png"
+            },
+             {
+                "label": "載具模型-bottom.png",
+                "name": "載具模型-bottom.png"
+            },
+             {
+                "label": "載具模型-left.png",
+                "name": "載具模型-left.png"
+            },
+             {
+                "label": "載具模型-right.png",
+                "name": "載具模型-right.png"
+            },
+            {
+                "label": "載具模型-front.png",
+                "name": "載具模型-front.png"
+            },
+            {
+                "label": "載具模型-back.png",
+                "name": "載具模型-back.png"
+            }
+        ]
+    }
+}

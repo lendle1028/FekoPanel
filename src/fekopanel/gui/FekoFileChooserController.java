@@ -22,13 +22,15 @@ import javafx.stage.FileChooser;
  */
 public class FekoFileChooserController implements Initializable {
     @FXML
-    private TextField fekFileText;
+    private TextField fekFileTextField;
     @FXML
     private TextField bofFileText;
     @FXML
     private TextField pfsFileText;
     @FXML
     private Pane root;
+    
+    private boolean ok=false;
     /**
      * Initializes the controller class.
      */
@@ -38,10 +40,10 @@ public class FekoFileChooserController implements Initializable {
     }    
     
     public File getFekFile(){
-        if(fekFileText.getText()==null || fekFileText.getText().isEmpty()){
+        if(fekFileTextField.getText()==null || fekFileTextField.getText().isEmpty()){
             return null;
         }
-        return new File(fekFileText.getText());
+        return new File(fekFileTextField.getText());
     }
     
     public File getBofFile(){
@@ -60,27 +62,29 @@ public class FekoFileChooserController implements Initializable {
     
     @FXML
     public void openFekFileAction(ActionEvent event){
-        
+        openFileChooser("fek", fekFileTextField);
     }
     
     @FXML
     public void openBofFileAction(ActionEvent event){
-        
+        openFileChooser("bof", bofFileText);
     }
     
     @FXML
     public void openPfsFileAction(ActionEvent event){
-        
+        openFileChooser("pfs", pfsFileText);
     }
     
     @FXML
     public void okAction(ActionEvent event){
-        
+        this.ok=true;
+        root.getScene().getWindow().hide();
     }
     
     @FXML
     public void cancelAction(ActionEvent event){
-        
+        this.ok=false;
+        root.getScene().getWindow().hide();
     }
     
     private void openFileChooser(String extension, TextField container){
@@ -89,8 +93,11 @@ public class FekoFileChooserController implements Initializable {
         fileChooser.setInitialDirectory(new File("."));
         File selectedFile = fileChooser.showOpenDialog(root.getScene().getWindow());
         if (selectedFile != null) {
-            /*this.selectedFile = selectedFile;
-            filename_text.setText(selectedFile.getName());*/
+            container.setText(selectedFile.getAbsolutePath());
         }
+    }
+    
+    public boolean isOk(){
+        return ok;
     }
 }

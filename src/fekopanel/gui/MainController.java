@@ -6,6 +6,7 @@
 package fekopanel.gui;
 
 import fekopanel.AppFunctions;
+import fekopanel.FekoFiles;
 import fekopanel.Result;
 import fekopanel.Session;
 import fekopanel.impl.DefaultSessionFactory;
@@ -18,6 +19,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;
+import javafx.beans.binding.BooleanBinding;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -43,34 +45,103 @@ public class MainController implements Initializable {
 
     @FXML
     private Pane root = null;
-
-    private File selectedFile = null;
     @FXML
     private Label filename_text;
     @FXML
-    private Button openFileButton;
+    private Button button01A;
     @FXML
-    private Button openAllGraphsButton;
+    private Button button01B;
+    @FXML
+    private Button button01C;
+    @FXML
+    private Button button01D;
+    @FXML
+    private Button button01E;
+    @FXML
+    private Button button01F;
+    @FXML
+    private Button button01G;
+    @FXML
+    private Button button01H;
+    @FXML
+    private Button button02A;
+    @FXML
+    private Button button02B;
+    @FXML
+    private Button button02C;
+    @FXML
+    private Button button02D;
+    @FXML
+    private Button button03A;
+    @FXML
+    private Button button03B;
+    @FXML
+    private Button button03C;
+    @FXML
+    private Button button03D;
 
     private Map<AppFunctions, Result> appFunctionResults = new HashMap<>();
     private Stage loadingDialog = null;
+    private Stage fileSelectionDialog = null;
+    private FekoFileChooserController fekoFileChooserController = null;
+    private FunctionDisableStateManager functionDisableStateManager = null;
+    private File fekFile = null;
+    private FekoFiles fekoFiles = new FekoFiles();
 
     @FXML
     private void handleOpenFileAction(ActionEvent event) {
-        appFunctionResults.clear();
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("fek File", "*.fek"));
-        fileChooser.setInitialDirectory(new File("."));
-        File selectedFile = fileChooser.showOpenDialog(root.getScene().getWindow());
-        if (selectedFile != null) {
-            this.selectedFile = selectedFile;
-            filename_text.setText(selectedFile.getName());
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    if (fileSelectionDialog == null) {
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FekoFileChooser.fxml"));
+                        Parent parent = fxmlLoader.load();
+                        fekoFileChooserController = fxmlLoader.getController();
+                        Scene scene = new Scene(parent);
+                        fileSelectionDialog = new Stage();
+                        fileSelectionDialog.initModality(Modality.APPLICATION_MODAL);
+                        fileSelectionDialog.setScene(scene);
+                    }
+                    fileSelectionDialog.showAndWait();
+                    if (fekoFileChooserController.isOk()) {
+                        File selectedFile = fekoFileChooserController.getFekFile();
+                        if (selectedFile != null) {
+                            filename_text.setText(selectedFile.getName());
+                            if (selectedFile.equals(fekFile) == false) {
+                                //if the selected fek file is different,
+                                //app function results cache must be cleared
+                                appFunctionResults.clear();
+                            }
+                        }
+                        fekFile = fekoFileChooserController.getFekFile();
+                        fekoFiles.reset();
+                        fekoFiles.setFekFile(fekoFileChooserController.getFekFile());
+                        fekoFiles.setBofFile(fekoFileChooserController.getBofFile());
+                        fekoFiles.setPfsFile(fekoFileChooserController.getPfsFile());
+                        functionDisableStateManager.invalidatae();
+                    }
+                } catch (IOException ex) {
+                    Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+    }
+
+    @FXML
+    private void handle02CAction(ActionEvent event) {
+        try {
+            fekoFiles.setMainFekoFile(fekoFiles.getFekFile());
+            runTask(new File("actions/02C/action.json"), AppFunctions.FUNCTION_02_C);
+        } catch (Exception ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     @FXML
     private void handle02DAction(ActionEvent event) {
         try {
+            fekoFiles.setMainFekoFile(fekoFiles.getFekFile());
             runTask(new File("actions/02D/action.json"), AppFunctions.FUNCTION_02_D);
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
@@ -80,6 +151,7 @@ public class MainController implements Initializable {
     @FXML
     private void handle01AAction(ActionEvent event) {
         try {
+            fekoFiles.setMainFekoFile(fekoFiles.getFekFile());
             runTask(new File("actions/01A/action.json"), AppFunctions.FUNCTION_01_A);
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
@@ -89,51 +161,77 @@ public class MainController implements Initializable {
     @FXML
     private void handle01BAction(ActionEvent event) {
         try {
+            fekoFiles.setMainFekoFile(fekoFiles.getFekFile());
             runTask(new File("actions/01B/action.json"), AppFunctions.FUNCTION_01_B);
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @FXML
     private void handle01CAction(ActionEvent event) {
         try {
+            fekoFiles.setMainFekoFile(fekoFiles.getFekFile());
             runTask(new File("actions/01C/action.json"), AppFunctions.FUNCTION_01_C);
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @FXML
     private void handle01DAction(ActionEvent event) {
         try {
+            fekoFiles.setMainFekoFile(fekoFiles.getFekFile());
             runTask(new File("actions/01D/action.json"), AppFunctions.FUNCTION_01_D);
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @FXML
     private void handle01EAction(ActionEvent event) {
         try {
+            fekoFiles.setMainFekoFile(fekoFiles.getFekFile());
             runTask(new File("actions/01E/action.json"), AppFunctions.FUNCTION_01_E);
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @FXML
     private void handle01FAction(ActionEvent event) {
         try {
+            fekoFiles.setMainFekoFile(fekoFiles.getFekFile());
             runTask(new File("actions/01F/action.json"), AppFunctions.FUNCTION_01_F);
+        } catch (Exception ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void handle01GAction(ActionEvent event) {
+        try {
+            fekoFiles.setMainFekoFile(fekoFiles.getFekFile());
+            runTask(new File("actions/01G/action.json"), AppFunctions.FUNCTION_01_G, true);
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
     @FXML
+    private void handle01HAction(ActionEvent event) {
+        try {
+            fekoFiles.setMainFekoFile(fekoFiles.getFekFile());
+            runTask(new File("actions/01H/action.json"), AppFunctions.FUNCTION_01_H, false);
+        } catch (Exception ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
     private void handle03AAction(ActionEvent event) {
         try {
+            fekoFiles.setMainFekoFile(fekoFiles.getFekFile());
             runTask(new File("actions/03A/action.json"), AppFunctions.FUNCTION_03_A);
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
@@ -143,29 +241,53 @@ public class MainController implements Initializable {
     @FXML
     private void handle03BAction(ActionEvent event) {
         try {
+            fekoFiles.setMainFekoFile(fekoFiles.getFekFile());
             runTask(new File("actions/03B/action.json"), AppFunctions.FUNCTION_03_B);
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @FXML
     private void handle03CAction(ActionEvent event) {
         try {
+            fekoFiles.setMainFekoFile(fekoFiles.getFekFile());
             runTask(new File("actions/03C/action.json"), AppFunctions.FUNCTION_03_C);
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        functionDisableStateManager = new FunctionDisableStateManager(fekoFiles);
+        functionDisableStateManager.addBinding("button01A", button01A, new String[]{"fek", "bof"});
+        functionDisableStateManager.addBinding("button01B", button01B, new String[]{"fek", "bof"});
+        functionDisableStateManager.addBinding("button01C", button01C, new String[]{"fek", "bof"});
+        functionDisableStateManager.addBinding("button01D", button01D, new String[]{"fek", "bof"});
+        functionDisableStateManager.addBinding("button01E", button01E, new String[]{"fek", "bof"});
+        functionDisableStateManager.addBinding("button01F", button01F, new String[]{"fek", "bof"});
+        functionDisableStateManager.addBinding("button01G", button01G, new String[]{"fek", "bof", "pfs"});
+        functionDisableStateManager.addBinding("button01H", button01H, new String[]{"fek"});
+
+        /*functionDisableStateManager.addBinding("button02A", button02A, new String[]{"fek", "bof", "pfs"});
+        functionDisableStateManager.addBinding("button02B", button02B, new String[]{"fek", "bof", "pfs"});*/
+        functionDisableStateManager.addBinding("button02C", button02C, new String[]{"fek", "bof"});
+        functionDisableStateManager.addBinding("button02D", button02D, new String[]{"fek", "bof"});
+
+        functionDisableStateManager.addBinding("button03A", button03A, new String[]{"fek", "bof"});
+        functionDisableStateManager.addBinding("button03B", button03B, new String[]{"fek", "bof"});
+        functionDisableStateManager.addBinding("button03C", button03C, new String[]{"fek", "bof"});
     }
 
     private void runTask(File actionFile, AppFunctions functionId) throws Exception {
+        this.runTask(actionFile, functionId, true);
+    }
+
+    private void runTask(File actionFile, AppFunctions functionId, boolean showLoading) throws Exception {
         //check whether the fek file is selected or not
-        if (selectedFile == null) {
+        if (fekFile == null) {
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
@@ -186,45 +308,52 @@ public class MainController implements Initializable {
             }
         } else {
             //otherwise, we have to execute the corresponding feko commands
-            new Thread() {
-                public void run() {
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("loading.fxml"));
-                                Parent parent = fxmlLoader.load();
-                                Scene scene = new Scene(parent, 300, 200);
-                                scene.setFill(Color.TRANSPARENT);
-                                loadingDialog = new Stage();
-                                loadingDialog.initModality(Modality.APPLICATION_MODAL);
-                                loadingDialog.setScene(scene);
-                                loadingDialog.initStyle(StageStyle.TRANSPARENT);
-                                loadingDialog.showAndWait();
-                            } catch (IOException ex) {
-                                Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+            if (showLoading) {
+                new Thread() {
+                    public void run() {
+                        Platform.runLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("loading.fxml"));
+                                    Parent parent = fxmlLoader.load();
+                                    Scene scene = new Scene(parent, 300, 200);
+                                    scene.setFill(Color.TRANSPARENT);
+                                    loadingDialog = new Stage();
+                                    loadingDialog.initModality(Modality.APPLICATION_MODAL);
+                                    loadingDialog.setScene(scene);
+                                    loadingDialog.initStyle(StageStyle.TRANSPARENT);
+                                    loadingDialog.showAndWait();
+                                } catch (IOException ex) {
+                                    Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+                                }
                             }
-                        }
-                    });
-                }
-            }.start();
+                        });
+                    }
+                }.start();
+            }
+            //System.out.println(1);
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
                     new Thread() {
                         public void run() {
                             try {
+                                //System.out.println(2);
                                 Session session = DefaultSessionFactory.fromJsonFile(actionFile);
-                                session.run(selectedFile, new Session.Callback() {
+                                //System.out.println(3);
+                                session.run(fekoFiles, new Session.Callback() {
                                     @Override
                                     public void onCompleted(Result result) {
                                         try {
-                                            Platform.runLater(new Runnable() {
-                                                @Override
-                                                public void run() {
-                                                    loadingDialog.close();
-                                                }
-                                            });
+                                            if (showLoading) {
+                                                Platform.runLater(new Runnable() {
+                                                    @Override
+                                                    public void run() {
+                                                        loadingDialog.close();
+                                                    }
+                                                });
+                                            }
                                             appFunctionResults.put(functionId, result);
                                             result.getPostRunner().resume();
                                         } catch (Exception ex) {

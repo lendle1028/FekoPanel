@@ -14,6 +14,15 @@ import java.util.Map;
 public class PostRunnerConfig {
     private String className=null;
     private Map properties=null;
+    private FekoCommandConfig fekoCommandConfig=null;
+
+    public FekoCommandConfig getFekoCommandConfig() {
+        return fekoCommandConfig;
+    }
+
+    public void setFekoCommandConfig(FekoCommandConfig fekoCommandConfig) {
+        this.fekoCommandConfig = fekoCommandConfig;
+    }
 
     public String getClassName() {
         return className;

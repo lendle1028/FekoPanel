@@ -36,7 +36,7 @@ public class FakeFekoCommandImpl implements FekoCommand{
 
     @Override
     public void run(Callback callback) throws Exception {
-        System.out.println("run~");
+        //System.out.println("run~");
         callback.onCompleted();
     }
     

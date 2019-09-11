@@ -14,19 +14,19 @@ import java.util.logging.Logger;
  *
  * @author lendle
  */
-public class DefaultFekoCommandImpl extends AbstractFekoCommandImpl{
+public class OpenFekoApplicationFekoCommandImpl extends AbstractFekoCommandImpl{
 
     @Override
     public String[] getCommand() {
         try {
             return new String[]{
                 "postfeko",
-                this.fekoCommandConfig.getFekoFile().getName(),
+                "\""+this.fekoCommandConfig.getFekoFile().getCanonicalPath()+"\"",
                 "--run-script",
                 "\""+new File(this.workDir, this.fekoCommandConfig.getMainLuaFile()).getCanonicalPath()+"\"",
-                "--non-interactive"
             };
         } catch (IOException ex) {
+            Logger.getLogger(OpenFekoApplicationFekoCommandImpl.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }

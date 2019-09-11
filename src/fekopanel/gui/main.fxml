@@ -47,14 +47,18 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
                     </rowConstraints>
                      <children>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle01AAction" text="01-A-顯示載具模型-上視圖 " textAlignment="RIGHT" />
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle01BAction" text="01-B-顯示載具模型-底視圖" GridPane.rowIndex="1" />
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle01CAction" text="01-C-顯示載具模型-左視圖 " GridPane.rowIndex="2" />
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle01DAction" text="01-D-顯示載具模型-右視圖 " GridPane.rowIndex="3" />
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle01EAction" text="01-E-顯示載具模型-前視圖" GridPane.rowIndex="4" />
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle01FAction" text="01-F-顯示載具模型-後視圖" GridPane.rowIndex="5" />
+                        <Button fx:id="button01A" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle01AAction" text="01-A-顯示載具模型-上視圖 " textAlignment="RIGHT" />
+                        <Button fx:id="button01B" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle01BAction" text="01-B-顯示載具模型-底視圖" GridPane.rowIndex="1" />
+                        <Button fx:id="button01C" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle01CAction" text="01-C-顯示載具模型-左視圖 " GridPane.rowIndex="2" />
+                        <Button fx:id="button01D" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle01DAction" text="01-D-顯示載具模型-右視圖 " GridPane.rowIndex="3" />
+                        <Button fx:id="button01E" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle01EAction" text="01-E-顯示載具模型-前視圖" GridPane.rowIndex="4" />
+                        <Button fx:id="button01F" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle01FAction" text="01-F-顯示載具模型-後視圖" GridPane.rowIndex="5" />
+                        <Button fx:id="button01G" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle01GAction" text="01-G-顯示載具模型-全部" GridPane.rowIndex="6" />
+                        <Button fx:id="button01H" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle01HAction" text="01-H-開啟 Feko" GridPane.rowIndex="7" />
                      </children>
                   </GridPane>
                </content>
@@ -69,13 +73,15 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="02A-產生pfs 紀錄檔" />
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="02B-產生pdf報告檔" GridPane.rowIndex="1" />
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="02C-產生pfs 紀錄檔與產生pdf報告檔" GridPane.rowIndex="2" />
-                        <Button fx:id="openAllGraphsButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle02DAction" text="02D-匯出所有紀錄圖檔" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
+                        <!--Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="02A-產生pfs 紀錄檔" fx:id="button02A"/>
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="02B-產生pdf報告檔" GridPane.rowIndex="1" fx:id="button02B"/>
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle02CAction" text="02C-產生pfs 紀錄檔與產生pdf報告檔" GridPane.rowIndex="2" fx:id="button02C"/>
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle02DAction" text="02D-匯出所有紀錄圖檔" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" fx:id="button02D"/-->
+                        <Button fx:id="button02C" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle02CAction" text="02B-產生pdf報告檔" GridPane.rowIndex="1" />
+                        <Button fx:id="button02D" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle02DAction" text="02D-匯出所有紀錄圖檔" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                </content>
@@ -92,9 +98,9 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle03AAction" text="03-A-顯示單/雙站 2D RCS" />
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle03BAction" text="03-B-顯示單/雙站 3D RCS" GridPane.rowIndex="1" />
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle03CAction" text="03-C-顯示3D表面感應電流" GridPane.rowIndex="2" />
+                        <Button fx:id="button03A" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle03AAction" text="03-A-顯示單/雙站 2D RCS" />
+                        <Button fx:id="button03B" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle03BAction" text="03-B-顯示單/雙站 3D RCS" GridPane.rowIndex="1" />
+                        <Button fx:id="button03C" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle03CAction" text="03-C-顯示3D表面感應電流" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                </content>
