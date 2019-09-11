@@ -21,9 +21,9 @@ public class OpenFekoApplicationFekoCommandImpl extends AbstractFekoCommandImpl{
         try {
             return new String[]{
                 "postfeko",
-                "\""+this.fekoCommandConfig.getFekoFile().getCanonicalPath()+"\"",
+                "\""+this.fekoCommandConfig.getFekoFile().getCanonicalPath()+"\""/*,
                 "--run-script",
-                "\""+new File(this.workDir, this.fekoCommandConfig.getMainLuaFile()).getCanonicalPath()+"\"",
+                "\""+new File(this.workDir, this.fekoCommandConfig.getMainLuaFile()).getCanonicalPath()+"\"",*/
             };
         } catch (IOException ex) {
             Logger.getLogger(OpenFekoApplicationFekoCommandImpl.class.getName()).log(Level.SEVERE, null, ex);

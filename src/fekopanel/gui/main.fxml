@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="root" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="597.0" prefWidth="309.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fekopanel.gui.MainController">
+<AnchorPane id="AnchorPane" fx:id="root" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="605.0" prefWidth="309.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fekopanel.gui.MainController">
     <children>
-      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="553.0" prefWidth="289.0" spacing="10.0" AnchorPane.bottomAnchor="34.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
             <BorderPane prefHeight="30.0" prefWidth="200.0">
                <center>
@@ -34,7 +34,7 @@
                   <Insets />
                </VBox.margin>
             </BorderPane>
-            <TitledPane collapsible="false" prefHeight="252.0" prefWidth="289.0" text="01-顯示載具模型(讀取/組合">
+            <TitledPane collapsible="false" prefHeight="233.0" prefWidth="289.0" text="01-顯示載具模型(讀取/組合">
                <content>
                   <GridPane prefHeight="219.0" prefWidth="287.0">
                     <columnConstraints>
@@ -63,7 +63,7 @@
                   </GridPane>
                </content>
             </TitledPane>
-            <TitledPane collapsible="false" prefHeight="152.0" prefWidth="289.0" text="02-檔案紀錄與文件產生">
+            <TitledPane collapsible="false" prefHeight="131.0" prefWidth="289.0" text="02-檔案紀錄與文件產生">
                <content>
                   <GridPane>
                     <columnConstraints>
