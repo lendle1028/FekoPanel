@@ -79,6 +79,14 @@ public class MainController implements Initializable {
     private Button button03C;
     @FXML
     private Button button03D;
+    @FXML
+    private Button button04A;
+    @FXML
+    private Button button04B;
+    @FXML
+    private Button button04C;
+    @FXML
+    private Button button04D;
 
     private Map<AppFunctions, Result> appFunctionResults = new HashMap<>();
     private Stage loadingDialog = null;
@@ -212,7 +220,7 @@ public class MainController implements Initializable {
     private void handle01GAction(ActionEvent event) {
         try {
             fekoFiles.setMainFekoFile(fekoFiles.getFekFile());
-            runTask(new File("actions/01G/action.json"), AppFunctions.FUNCTION_01_G, true);
+            runTask(new File("actions/01G/action.json"), AppFunctions.FUNCTION_01_G, true, true);
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -222,7 +230,7 @@ public class MainController implements Initializable {
     private void handle01HAction(ActionEvent event) {
         try {
             fekoFiles.setMainFekoFile(fekoFiles.getFekFile());
-            runTask(new File("actions/01H/action.json"), AppFunctions.FUNCTION_01_H, false);
+            runTask(new File("actions/01H/action.json"), AppFunctions.FUNCTION_01_H, false, true);
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -257,6 +265,50 @@ public class MainController implements Initializable {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    @FXML
+    private void handle04AAction(ActionEvent event) {
+        try {
+            fekoFiles.reset();
+            fekoFiles.useFakeFekoFiles();
+            runTask(new File("actions/04A/action.json"), AppFunctions.FUNCTION_04_A, false, false);
+        } catch (Exception ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @FXML
+    private void handle04BAction(ActionEvent event) {
+        try {
+            fekoFiles.reset();
+            fekoFiles.useFakeFekoFiles();
+            runTask(new File("actions/04B/action.json"), AppFunctions.FUNCTION_04_B,  false, false);
+        } catch (Exception ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @FXML
+    private void handle04CAction(ActionEvent event) {
+        try {
+            fekoFiles.reset();
+            fekoFiles.useFakeFekoFiles();
+            runTask(new File("actions/04C/action.json"), AppFunctions.FUNCTION_04_C,  false, false);
+        } catch (Exception ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @FXML
+    private void handle04DAction(ActionEvent event) {
+        try {
+            fekoFiles.reset();
+            fekoFiles.useFakeFekoFiles();
+            runTask(new File("actions/04D/action.json"), AppFunctions.FUNCTION_04_D,  false, false);
+        } catch (Exception ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -282,12 +334,12 @@ public class MainController implements Initializable {
     }
 
     private void runTask(File actionFile, AppFunctions functionId) throws Exception {
-        this.runTask(actionFile, functionId, true);
+        this.runTask(actionFile, functionId, true, true);
     }
 
-    private void runTask(File actionFile, AppFunctions functionId, boolean showLoading) throws Exception {
+    private void runTask(File actionFile, AppFunctions functionId, boolean showLoading, boolean requireFekoFile) throws Exception {
         //check whether the fek file is selected or not
-        if (fekFile == null) {
+        if (requireFekoFile && fekFile == null) {
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {

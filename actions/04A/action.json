@@ -1,0 +1,14 @@
+{
+    "presetFiles":["actions/04A/empty.lua"],
+    "fekoCommandConfig":{
+        "className":"fekopanel.impl.MatlabCommandImpl",
+        "main":"empty.lua",
+        "mscript": "UAV0806_2d_pdf.m",
+        "args":{
+            "fileName": "${FEKO_FILE_NAME}"
+        }
+    },
+    "postRunnerConfig":{
+        "className":"fekopanel.impl.NoopPostRunnerImpl"
+    }
+}

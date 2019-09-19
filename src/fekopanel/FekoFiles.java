@@ -49,6 +49,15 @@ public class FekoFiles {
     public void setMainFekoFile(File mainFekoFile) {
         this.mainFekoFile = mainFekoFile;
     }
+    /**
+     * for functions does not need feko files
+     * this is a workaround
+     * but keep the flexity of adding feko file back
+     */
+    public void useFakeFekoFiles(){
+        this.fekFile=new File(new File("matlab"), "noop.fek");
+        this.mainFekoFile=this.fekFile;
+    }
     
     public void reset(){
         this.fekFile=null;

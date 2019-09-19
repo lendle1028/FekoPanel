@@ -66,13 +66,17 @@ public abstract class AbstractFekoCommandImpl implements FekoCommand {
     }
 
     public abstract String[] getCommand();
-
+    
+    protected File getWorkingDir(){
+        return fekoCommandConfig.getFekoFile().getParentFile();
+    }
+    
     @Override
     public void run(Callback callback) throws Exception {
         assignValueToParametersInLua();
         ProcessBuilder pb = new ProcessBuilder(this.getCommand());
         Logger.getLogger(this.getClass().getName()).info("executing command: "+Arrays.deepToString(this.getCommand()));
-        pb.directory(fekoCommandConfig.getFekoFile().getParentFile());
+        pb.directory(getWorkingDir());
         pb.redirectErrorStream();
         Process process = pb.start();
         process.waitFor();
