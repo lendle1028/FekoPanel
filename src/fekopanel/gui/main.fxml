@@ -8,15 +8,16 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="root" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="311.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fekopanel.gui.MainController">
+<AnchorPane id="AnchorPane" fx:id="root" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="424.0" prefWidth="572.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fekopanel.gui.MainController">
     <children>
-      <VBox layoutX="5.0" layoutY="7.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="302.0" spacing="10.0" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="7.0">
+      <VBox layoutX="5.0" layoutY="7.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="391.0" prefWidth="557.0" spacing="10.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
          <children>
-            <BorderPane prefHeight="30.0" prefWidth="200.0">
+            <BorderPane prefHeight="28.0" prefWidth="544.0">
                <center>
                     <Label fx:id="filename_text" maxWidth="1.7976931348623157E308" text="載具名稱" textFill="#c8c8c9" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
@@ -33,97 +34,138 @@
                <VBox.margin>
                   <Insets />
                </VBox.margin>
+               <padding>
+                  <Insets left="10.0" right="10.0" top="5.0" />
+               </padding>
             </BorderPane>
-            <TitledPane collapsible="false" prefHeight="254.0" prefWidth="302.0" text="01-顯示載具模型(讀取/組合">
-               <content>
-                  <GridPane prefHeight="152.0" prefWidth="300.0">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints />
-                        <RowConstraints />
-                        <RowConstraints />
-                    </rowConstraints>
+            <HBox prefHeight="428.0" prefWidth="520.0">
+               <children>
+                  <VBox prefHeight="348.0" prefWidth="267.0">
                      <children>
-                        <Button fx:id="button01A" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle01AAction" text="01-A-顯示載具模型-上視圖 " textAlignment="RIGHT" />
-                        <Button fx:id="button01B" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle01BAction" text="01-B-顯示載具模型-底視圖" GridPane.rowIndex="1" />
-                        <Button fx:id="button01C" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle01CAction" text="01-C-顯示載具模型-左視圖 " GridPane.rowIndex="2" />
-                        <Button fx:id="button01D" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle01DAction" text="01-D-顯示載具模型-右視圖 " GridPane.rowIndex="3" />
-                        <Button fx:id="button01E" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle01EAction" text="01-E-顯示載具模型-前視圖" GridPane.rowIndex="4" />
-                        <Button fx:id="button01F" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle01FAction" text="01-F-顯示載具模型-後視圖" GridPane.rowIndex="5" />
-                        <Button fx:id="button01G" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle01GAction" text="01-G-顯示載具模型-全部" GridPane.rowIndex="6" />
-                        <Button fx:id="button01H" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle01HAction" text="01-H-開啟 Feko" GridPane.rowIndex="7" />
+                        <TitledPane collapsible="false" prefHeight="273.0" prefWidth="256.0" text="01-顯示載具模型(讀取/組合">
+                           <content>
+                              <GridPane prefHeight="247.0" prefWidth="254.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                </rowConstraints>
+                                 <children>
+                                    <Button fx:id="button01A" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle01AAction" text="01-A-顯示載具模型-上視圖 " textAlignment="RIGHT" />
+                                    <Button fx:id="button01B" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle01BAction" text="01-B-顯示載具模型-底視圖" GridPane.rowIndex="1" />
+                                    <Button fx:id="button01C" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle01CAction" text="01-C-顯示載具模型-左視圖 " GridPane.rowIndex="2" />
+                                    <Button fx:id="button01D" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle01DAction" text="01-D-顯示載具模型-右視圖 " GridPane.rowIndex="3" />
+                                    <Button fx:id="button01E" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle01EAction" text="01-E-顯示載具模型-前視圖" GridPane.rowIndex="4" />
+                                    <Button fx:id="button01F" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle01FAction" text="01-F-顯示載具模型-後視圖" GridPane.rowIndex="5" />
+                                    <Button fx:id="button01G" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle01GAction" text="01-G-顯示載具模型-全部" GridPane.rowIndex="6" />
+                                    <Button fx:id="button01H" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle01HAction" text="01-H-開啟 Feko" GridPane.rowIndex="7" />
+                                 </children>
+                              </GridPane>
+                           </content>
+                           <padding>
+                              <Insets bottom="5.0" />
+                           </padding>
+                        </TitledPane>
+                        <TitledPane collapsible="false" prefHeight="119.0" prefWidth="256.0" text="02-檔案紀錄與文件產生">
+                           <content>
+                              <GridPane prefHeight="78.0" prefWidth="254.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="ALWAYS" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <!--Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="02A-產生pfs 紀錄檔" fx:id="button02A"/>
+                                    <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="02B-產生pdf報告檔" GridPane.rowIndex="1" fx:id="button02B"/>
+                                          <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle02CAction" text="02C-產生pfs 紀錄檔與產生pdf報告檔" GridPane.rowIndex="2" fx:id="button02C"/>
+                                          <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle02DAction" text="02D-匯出所有紀錄圖檔" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" fx:id="button02D"/-->
+                                    <Button fx:id="button02C" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle02CAction" text="02B-自動產生報告" />
+                                    <Button fx:id="button02D" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle02DAction" text="02D-匯出所有紀錄圖檔(.png)" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+                                 </children>
+                              </GridPane>
+                           </content>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </TitledPane>
                      </children>
-                  </GridPane>
-               </content>
-            </TitledPane>
-            <TitledPane collapsible="false" prefHeight="89.0" prefWidth="302.0" text="02-檔案紀錄與文件產生">
-               <content>
-                  <GridPane prefHeight="78.0" prefWidth="300.0">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="ALWAYS" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
+                     <padding>
+                        <Insets left="5.0" right="5.0" />
+                     </padding>
+                  </VBox>
+                  <VBox prefHeight="348.0" prefWidth="287.0">
                      <children>
-                        <!--Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="02A-產生pfs 紀錄檔" fx:id="button02A"/>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="02B-產生pdf報告檔" GridPane.rowIndex="1" fx:id="button02B"/>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle02CAction" text="02C-產生pfs 紀錄檔與產生pdf報告檔" GridPane.rowIndex="2" fx:id="button02C"/>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle02DAction" text="02D-匯出所有紀錄圖檔" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" fx:id="button02D"/-->
-                        <Button fx:id="button02C" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle02CAction" text="02B-產生pdf報告檔" />
-                        <Button fx:id="button02D" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle02DAction" text="02D-匯出所有紀錄圖檔" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+                        <TitledPane collapsible="false" prefHeight="151.0" prefWidth="302.0" text="03-顯示單/雙站RCS">
+                           <content>
+                              <GridPane prefHeight="121.0" prefWidth="300.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Button fx:id="button03A" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle03AAction" text="03-B-顯示單/雙站 2D RCS" GridPane.rowIndex="1" />
+                                    <Button fx:id="button03B" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle03BAction" text="03-C-顯示單/雙站 3D RCS" GridPane.rowIndex="2" />
+                                    <Button fx:id="button03C" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle03CAction" text="03-D-顯示3D表面感應電流" GridPane.rowIndex="3" />
+                                    <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle03AAction" text="03-A-顯示單/雙站 1D RCS" />
+                                 </children>
+                              </GridPane>
+                           </content>
+                           <padding>
+                              <Insets bottom="5.0" />
+                           </padding>
+                        </TitledPane>
+                        <TitledPane collapsible="false" prefHeight="154.0" prefWidth="302.0" text="04-PDF CDF">
+                           <content>
+                              <GridPane prefHeight="129.0" prefWidth="300.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Button fx:id="button04A" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle04AAction" text="04-A-多散射體PDF/CDF" />
+                                    <Button fx:id="button04B" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle04BAction" text="04-B-單散射體PDF" GridPane.rowIndex="1" />
+                                    <Button fx:id="button04C" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle04CAction" text="04-C-單散射體CDF" GridPane.rowIndex="2" />
+                                    <Button fx:id="button04D" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle04DAction" text="04-D-多散射體CDF" GridPane.rowIndex="3" />
+                                 </children>
+                              </GridPane>
+                           </content>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </TitledPane>
                      </children>
-                  </GridPane>
-               </content>
-            </TitledPane>
-            <TitledPane collapsible="false" prefHeight="127.0" prefWidth="289.0" text="03-顯示單/雙站RCS">
-               <content>
-                  <GridPane prefWidth="287.0">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <Button fx:id="button03A" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle03AAction" text="03-A-顯示單/雙站 2D RCS" />
-                        <Button fx:id="button03B" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle03BAction" text="03-B-顯示單/雙站 3D RCS" GridPane.rowIndex="1" />
-                        <Button fx:id="button03C" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle03CAction" text="03-C-顯示3D表面感應電流" GridPane.rowIndex="2" />
-                     </children>
-                  </GridPane>
-               </content>
-            </TitledPane>
-            <TitledPane collapsible="false" prefHeight="154.0" prefWidth="302.0" text="04-PDF CDF">
-               <content>
-                  <GridPane prefHeight="129.0" prefWidth="300.0">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <Button fx:id="button04A" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle04AAction" text="04-A-多散射體PDF/CDF" />
-                        <Button fx:id="button04B" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle04BAction" text="04-B-單散射體PDF" GridPane.rowIndex="1" />
-                        <Button fx:id="button04C" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle04CAction" text="04-C-單散射體CDF" GridPane.rowIndex="2" />
-                        <Button fx:id="button04D" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle04DAction" text="04-D-多散射體CDF" GridPane.rowIndex="3" />
-                     </children>
-                  </GridPane>
-               </content>
-            </TitledPane>
+                     <padding>
+                        <Insets left="5.0" right="5.0" />
+                     </padding>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
          </children>
          <padding>
             <Insets bottom="10.0" />
