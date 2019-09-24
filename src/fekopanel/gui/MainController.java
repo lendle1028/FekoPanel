@@ -10,6 +10,8 @@ import fekopanel.FekoFiles;
 import fekopanel.Result;
 import fekopanel.Session;
 import fekopanel.impl.DefaultSessionFactory;
+import fekopanel.impl.OpenMultiFilePostRunnerImpl;
+import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -21,9 +23,11 @@ import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.beans.binding.BooleanBinding;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -31,11 +35,13 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -225,7 +231,7 @@ public class MainController implements Initializable {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @FXML
     private void handle01HAction(ActionEvent event) {
         try {
@@ -239,8 +245,56 @@ public class MainController implements Initializable {
     @FXML
     private void handle03AAction(ActionEvent event) {
         try {
-            fekoFiles.setMainFekoFile(fekoFiles.getFekFile());
-            runTask(new File("actions/03A/action.json"), AppFunctions.FUNCTION_03_A);
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    Stage dialog = new Stage();
+                    dialog.setWidth(200);
+                    dialog.setHeight(300);
+                    dialog.initStyle(StageStyle.UTILITY);
+                    dialog.setAlwaysOnTop(true);
+                    VBox root = new VBox();
+                    root.setPadding(new Insets(10));
+                    root.setSpacing(10);
+                    root.setFillWidth(true);
+                    Button button_1 = new Button("顯示x座標軸的RCS");
+                    Button button_2 = new Button("顯示y座標軸的RCS");
+                    root.getChildren().add(button_1);
+                    root.getChildren().add(button_2);
+
+                    button_1.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent event) {
+                            fekoFiles.reset();
+                            fekoFiles.useFakeFekoFiles();
+                            try {
+                                runTask(new File("actions/03A_1/action.json"), AppFunctions.FUNCTION_03_A_1, false, false);
+                            } catch (Exception ex) {
+                                Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    });
+
+                    button_2.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent event) {
+                            fekoFiles.reset();
+                            fekoFiles.useFakeFekoFiles();
+                            try {
+                                runTask(new File("actions/03A_2/action.json"), AppFunctions.FUNCTION_03_A_2, false, false);
+                            } catch (Exception ex) {
+                                Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    });
+
+                    Scene scene = new Scene(root);
+                    dialog.setScene(scene);
+                    dialog.show();
+                }
+            });
+//            fekoFiles.setMainFekoFile(fekoFiles.getFekFile());
+//            runTask(new File("actions/03B/action.json"), AppFunctions.FUNCTION_03_B);
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -265,7 +319,17 @@ public class MainController implements Initializable {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
+    @FXML
+    private void handle03DAction(ActionEvent event) {
+        try {
+            fekoFiles.setMainFekoFile(fekoFiles.getFekFile());
+            runTask(new File("actions/03D/action.json"), AppFunctions.FUNCTION_03_D);
+        } catch (Exception ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     @FXML
     private void handle04AAction(ActionEvent event) {
         try {
@@ -276,35 +340,35 @@ public class MainController implements Initializable {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @FXML
     private void handle04BAction(ActionEvent event) {
         try {
             fekoFiles.reset();
             fekoFiles.useFakeFekoFiles();
-            runTask(new File("actions/04B/action.json"), AppFunctions.FUNCTION_04_B,  false, false);
+            runTask(new File("actions/04B/action.json"), AppFunctions.FUNCTION_04_B, false, false);
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @FXML
     private void handle04CAction(ActionEvent event) {
         try {
             fekoFiles.reset();
             fekoFiles.useFakeFekoFiles();
-            runTask(new File("actions/04C/action.json"), AppFunctions.FUNCTION_04_C,  false, false);
+            runTask(new File("actions/04C/action.json"), AppFunctions.FUNCTION_04_C, false, false);
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @FXML
     private void handle04DAction(ActionEvent event) {
         try {
             fekoFiles.reset();
             fekoFiles.useFakeFekoFiles();
-            runTask(new File("actions/04D/action.json"), AppFunctions.FUNCTION_04_D,  false, false);
+            runTask(new File("actions/04D/action.json"), AppFunctions.FUNCTION_04_D, false, false);
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -328,9 +392,9 @@ public class MainController implements Initializable {
         functionDisableStateManager.addBinding("button02C", button02C, new String[]{"fek", "bof"});
         functionDisableStateManager.addBinding("button02D", button02D, new String[]{"fek", "bof"});
 
-        functionDisableStateManager.addBinding("button03A", button03A, new String[]{"fek", "bof"});
         functionDisableStateManager.addBinding("button03B", button03B, new String[]{"fek", "bof"});
         functionDisableStateManager.addBinding("button03C", button03C, new String[]{"fek", "bof"});
+        functionDisableStateManager.addBinding("button03D", button03D, new String[]{"fek", "bof"});
     }
 
     private void runTask(File actionFile, AppFunctions functionId) throws Exception {

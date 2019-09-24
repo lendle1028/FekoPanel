@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="root" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="424.0" prefWidth="572.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fekopanel.gui.MainController">
+<AnchorPane id="AnchorPane" fx:id="root" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="424.0" prefWidth="572.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fekopanel.gui.MainController">
     <children>
       <VBox layoutX="5.0" layoutY="7.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="391.0" prefWidth="557.0" spacing="10.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
          <children>
@@ -118,10 +118,10 @@
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <Button fx:id="button03A" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle03AAction" text="03-B-顯示單/雙站 2D RCS" GridPane.rowIndex="1" />
-                                    <Button fx:id="button03B" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle03BAction" text="03-C-顯示單/雙站 3D RCS" GridPane.rowIndex="2" />
-                                    <Button fx:id="button03C" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle03CAction" text="03-D-顯示3D表面感應電流" GridPane.rowIndex="3" />
-                                    <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle03AAction" text="03-A-顯示單/雙站 1D RCS" />
+                                    <Button fx:id="button03B" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle03BAction" text="03-B-顯示單/雙站 2D RCS" GridPane.rowIndex="1" />
+                                    <Button fx:id="button03C" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle03CAction" text="03-C-顯示單/雙站 3D RCS" GridPane.rowIndex="2" />
+                                    <Button fx:id="button03D" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle03DAction" text="03-D-顯示3D表面感應電流" GridPane.rowIndex="3" />
+                                    <Button fx:id="button03A" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handle03AAction" text="03-A-顯示單/雙站 1D RCS" />
                                  </children>
                               </GridPane>
                            </content>

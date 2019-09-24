@@ -1,8 +1,8 @@
 {
-    "presetFiles":["actions/03C/generate_antenna_png(表面感應電流).lua"],
+    "presetFiles":["actions/03C/generate_antenna_png(3D-model-RCS).lua"],
     "fekoCommandConfig":{
         "className":"fekopanel.impl.DefaultFekoCommandImpl",
-        "main":"generate_antenna_png(表面感應電流).lua",
+        "main":"generate_antenna_png(3D-model-RCS).lua",
         "args":{
             "fileName": "${FEKO_FILE_NAME}"
         }
@@ -11,12 +11,12 @@
         "className":"fekopanel.impl.OpenMultiFilePostRunnerImpl",
         "files": [
             {
-                "label": "3D-表面感應電流1",
-                "name": "3D-表面感應電流1.png"
+                "label": "3D-RCS示意圖1",
+                "name": "3D-RCS示意圖1.png"
             },
             {
-                "label": "3D-表面感應電流2",
-                "name": "3D-表面感應電流2.png"
+                "label": "3D-RCS示意圖2",
+                "name": "3D-RCS示意圖2.png"
             }
         ]
     }

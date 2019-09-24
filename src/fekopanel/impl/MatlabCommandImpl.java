@@ -27,7 +27,7 @@ public class MatlabCommandImpl extends AbstractFekoCommandImpl{
             "-nosplash",
             "-nodesktop",
             "-r",
-            "\"run('"+mscript+"');exit;\""
+            "\"run('"+mscript+"');\""
         };
     }
     
