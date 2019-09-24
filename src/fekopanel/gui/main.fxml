@@ -42,7 +42,7 @@
                <children>
                   <VBox prefHeight="348.0" prefWidth="267.0">
                      <children>
-                        <TitledPane collapsible="false" prefHeight="273.0" prefWidth="256.0" text="01-顯示載具模型(讀取/組合">
+                        <TitledPane collapsible="false" prefHeight="273.0" prefWidth="256.0" text="01-顯示載具模型(讀取/組合)">
                            <content>
                               <GridPane prefHeight="247.0" prefWidth="254.0">
                                 <columnConstraints>
