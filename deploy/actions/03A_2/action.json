@@ -1,0 +1,14 @@
+{
+    "presetFiles":["actions/03A_2/empty.lua"],
+    "fekoCommandConfig":{
+        "className":"fekopanel.impl.MatlabCommandImpl",
+        "main":"empty.lua",
+        "mscript": "dataplotY.m",
+        "args":{
+            "fileName": "${FEKO_FILE_NAME}"
+        }
+    },
+    "postRunnerConfig":{
+        "className":"fekopanel.impl.NoopPostRunnerImpl"
+    }
+}
