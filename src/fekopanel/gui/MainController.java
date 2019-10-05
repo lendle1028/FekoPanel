@@ -100,7 +100,7 @@ public class MainController implements Initializable {
     private FekoFileChooserController fekoFileChooserController = null;
     private FunctionDisableStateManager functionDisableStateManager = null;
     private File fekFile = null;
-    private FekoFiles fekoFiles = new FekoFiles();
+    private FekoFiles fekoFiles = new FekoFiles(), faFekoFiles=new FekoFiles();
 
     @FXML
     private void handleOpenFileAction(ActionEvent event) {
@@ -265,8 +265,6 @@ public class MainController implements Initializable {
                     button_1.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent event) {
-                            fekoFiles.reset();
-                            fekoFiles.useFakeFekoFiles();
                             try {
                                 runTask(new File("actions/03A_1/action.json"), AppFunctions.FUNCTION_03_A_1, false, false);
                             } catch (Exception ex) {
@@ -278,8 +276,6 @@ public class MainController implements Initializable {
                     button_2.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent event) {
-                            fekoFiles.reset();
-                            fekoFiles.useFakeFekoFiles();
                             try {
                                 runTask(new File("actions/03A_2/action.json"), AppFunctions.FUNCTION_03_A_2, false, false);
                             } catch (Exception ex) {
@@ -333,8 +329,6 @@ public class MainController implements Initializable {
     @FXML
     private void handle04AAction(ActionEvent event) {
         try {
-            fekoFiles.reset();
-            fekoFiles.useFakeFekoFiles();
             runTask(new File("actions/04A/action.json"), AppFunctions.FUNCTION_04_A, false, false);
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
@@ -344,8 +338,6 @@ public class MainController implements Initializable {
     @FXML
     private void handle04BAction(ActionEvent event) {
         try {
-            fekoFiles.reset();
-            fekoFiles.useFakeFekoFiles();
             runTask(new File("actions/04B/action.json"), AppFunctions.FUNCTION_04_B, false, false);
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
@@ -355,8 +347,6 @@ public class MainController implements Initializable {
     @FXML
     private void handle04CAction(ActionEvent event) {
         try {
-            fekoFiles.reset();
-            fekoFiles.useFakeFekoFiles();
             runTask(new File("actions/04C/action.json"), AppFunctions.FUNCTION_04_C, false, false);
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
@@ -366,8 +356,6 @@ public class MainController implements Initializable {
     @FXML
     private void handle04DAction(ActionEvent event) {
         try {
-            fekoFiles.reset();
-            fekoFiles.useFakeFekoFiles();
             runTask(new File("actions/04D/action.json"), AppFunctions.FUNCTION_04_D, false, false);
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
@@ -395,6 +383,8 @@ public class MainController implements Initializable {
         functionDisableStateManager.addBinding("button03B", button03B, new String[]{"fek", "bof"});
         functionDisableStateManager.addBinding("button03C", button03C, new String[]{"fek", "bof"});
         functionDisableStateManager.addBinding("button03D", button03D, new String[]{"fek", "bof"});
+        
+        this.faFekoFiles.useFakeFekoFiles();
     }
 
     private void runTask(File actionFile, AppFunctions functionId) throws Exception {
@@ -458,7 +448,7 @@ public class MainController implements Initializable {
                                 //System.out.println(2);
                                 Session session = DefaultSessionFactory.fromJsonFile(actionFile);
                                 //System.out.println(3);
-                                session.run(fekoFiles, new Session.Callback() {
+                                session.run(requireFekoFile?fekoFiles:faFekoFiles, new Session.Callback() {
                                     @Override
                                     public void onCompleted(Result result) {
                                         try {

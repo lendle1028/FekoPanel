@@ -1,1 +1,1 @@
-start .\jre\bin\javaw -jar FekoPanel.jar
+start .\jre\bin\java -jar FekoPanel.jar
