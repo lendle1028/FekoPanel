@@ -1,0 +1,15 @@
+{
+    "presetFiles":["actions/bi_site/02C/02-B-generatePDF_report.lua"],
+    "fekoCommandConfig":{
+        "className":"fekopanel.impl.DefaultFekoCommandImpl",
+        "main":"02-B-generatePDF_report.lua",
+        "args":{
+            "fileName": "${FEKO_FILE_NAME}",
+            "modelName": "${FEKO_MODEL_NAME}"
+        }
+    },
+    "postRunnerConfig":{
+        "className":"fekopanel.impl.OpenFilePostRunnerImpl",
+		"fileName":"RCS_report.pdf"
+    }
+}

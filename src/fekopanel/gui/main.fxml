@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.ToggleSwitch?>
 
 <AnchorPane id="AnchorPane" fx:id="root" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="424.0" prefWidth="572.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fekopanel.gui.MainController">
     <children>
@@ -37,6 +38,13 @@
                <padding>
                   <Insets left="10.0" right="10.0" top="5.0" />
                </padding>
+               <bottom>
+                  <AnchorPane prefHeight="37.0" prefWidth="542.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <ToggleSwitch fx:id="buttonToggleSingleDouble" layoutX="490.0" layoutY="10.0" onMouseClicked="#handleToggleSingleDouble" text="單站" />
+                     </children>
+                  </AnchorPane>
+               </bottom>
             </BorderPane>
             <HBox prefHeight="428.0" prefWidth="520.0">
                <children>

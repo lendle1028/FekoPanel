@@ -34,6 +34,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -42,6 +43,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javax.swing.SwingUtilities;
+import org.controlsfx.control.ToggleSwitch;
 
 /**
  *
@@ -93,6 +95,8 @@ public class MainController implements Initializable {
     private Button button04C;
     @FXML
     private Button button04D;
+    @FXML
+    private ToggleSwitch buttonToggleSingleDouble;
 
     private Map<AppFunctions, Result> appFunctionResults = new HashMap<>();
     private Stage loadingDialog = null;
@@ -146,7 +150,11 @@ public class MainController implements Initializable {
     private void handle02CAction(ActionEvent event) {
         try {
             fekoFiles.setMainFekoFile(fekoFiles.getFekFile());
-            runTask(new File("actions/02C/action.json"), AppFunctions.FUNCTION_02_C);
+            if(buttonToggleSingleDouble.isSelected()==false){
+                runTask(new File("actions/02C/action.json"), AppFunctions.FUNCTION_02_C);
+            }else{
+                runTask(new File("actions/bi_site/02C/action.json"), AppFunctions.FUNCTION_02_C_BI);
+            }
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -156,7 +164,11 @@ public class MainController implements Initializable {
     private void handle02DAction(ActionEvent event) {
         try {
             fekoFiles.setMainFekoFile(fekoFiles.getFekFile());
-            runTask(new File("actions/02D/action.json"), AppFunctions.FUNCTION_02_D);
+            if(buttonToggleSingleDouble.isSelected()==false){
+                runTask(new File("actions/02D/action.json"), AppFunctions.FUNCTION_02_D);
+            }else{
+                runTask(new File("actions/bi_site/02D/action.json"), AppFunctions.FUNCTION_02_D_BI);
+            }
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -361,7 +373,16 @@ public class MainController implements Initializable {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    
+    @FXML
+    private void handleToggleSingleDouble(MouseEvent event) {
+        try {
+            buttonToggleSingleDouble.setText(buttonToggleSingleDouble.isSelected()?"雙站":"單站");
+        } catch (Exception ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -392,6 +413,7 @@ public class MainController implements Initializable {
     }
 
     private void runTask(File actionFile, AppFunctions functionId, boolean showLoading, boolean requireFekoFile) throws Exception {
+        //System.out.println("actionFile="+actionFile);
         //check whether the fek file is selected or not
         if (requireFekoFile && fekFile == null) {
             Platform.runLater(new Runnable() {
