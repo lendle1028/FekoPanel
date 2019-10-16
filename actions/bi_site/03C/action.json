@@ -1,0 +1,23 @@
+{
+    "presetFiles":["actions/bi_site/03C/03-C-generate_antenna_png(3D-model-RCS).lua"],
+    "fekoCommandConfig":{
+        "className":"fekopanel.impl.DefaultFekoCommandImpl",
+        "main":"03-C-generate_antenna_png(3D-model-RCS).lua",
+        "args":{
+            "fileName": "${FEKO_FILE_NAME}"
+        }
+    },
+    "postRunnerConfig":{
+        "className":"fekopanel.impl.OpenMultiFilePostRunnerImpl",
+        "files": [
+            {
+                "label": "單雙站3D-RCS1",
+                "name": "單雙站3D-RCS1.png"
+            },
+            {
+                "label": "單雙站3D-RCS2",
+                "name": "單雙站3D-RCS2.png"
+            }
+        ]
+    }
+}

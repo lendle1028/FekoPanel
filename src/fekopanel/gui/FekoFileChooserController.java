@@ -90,7 +90,11 @@ public class FekoFileChooserController implements Initializable {
     private void openFileChooser(String extension, TextField container){
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter(extension+" File", "*."+extension));
-        fileChooser.setInitialDirectory(new File("."));
+        if(this.getFekFile()==null){
+            fileChooser.setInitialDirectory(new File("."));
+        }else{
+            fileChooser.setInitialDirectory(this.getFekFile().getParentFile());
+        }
         File selectedFile = fileChooser.showOpenDialog(root.getScene().getWindow());
         if (selectedFile != null) {
             container.setText(selectedFile.getAbsolutePath());

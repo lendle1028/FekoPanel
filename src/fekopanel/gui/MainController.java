@@ -312,7 +312,11 @@ public class MainController implements Initializable {
     private void handle03BAction(ActionEvent event) {
         try {
             fekoFiles.setMainFekoFile(fekoFiles.getFekFile());
-            runTask(new File("actions/03B/action.json"), AppFunctions.FUNCTION_03_B);
+            if(buttonToggleSingleDouble.isSelected()==false){
+                runTask(new File("actions/03B/action.json"), AppFunctions.FUNCTION_03_B);
+            }else{
+                runTask(new File("actions/bi_site/03B/action.json"), AppFunctions.FUNCTION_03_B_BI);
+            }
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -322,7 +326,11 @@ public class MainController implements Initializable {
     private void handle03CAction(ActionEvent event) {
         try {
             fekoFiles.setMainFekoFile(fekoFiles.getFekFile());
-            runTask(new File("actions/03C/action.json"), AppFunctions.FUNCTION_03_C);
+            if(buttonToggleSingleDouble.isSelected()==false){
+                runTask(new File("actions/03C/action.json"), AppFunctions.FUNCTION_03_C);
+            }else{
+                runTask(new File("actions/bi_site/03C/action.json"), AppFunctions.FUNCTION_03_C_BI);
+            }
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -332,7 +340,11 @@ public class MainController implements Initializable {
     private void handle03DAction(ActionEvent event) {
         try {
             fekoFiles.setMainFekoFile(fekoFiles.getFekFile());
-            runTask(new File("actions/03D/action.json"), AppFunctions.FUNCTION_03_D);
+            if(buttonToggleSingleDouble.isSelected()==false){
+                runTask(new File("actions/03D/action.json"), AppFunctions.FUNCTION_03_D);
+            }else{
+                runTask(new File("actions/bi_site/03D/action.json"), AppFunctions.FUNCTION_03_D_BI);
+            }
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
