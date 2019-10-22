@@ -8,8 +8,9 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="FekoPanel.jar" size="53204" download="eager" />
+    <jar href="FekoPanel.jar" size="54534" download="eager" />
     <jar href="lib\commons-io-2.6.jar" size="214788" download="eager" />
+    <jar href="lib\controlsfx-8.40.15.jar" size="1402490" download="eager" />
     <jar href="lib\gson-2.8.5.jar" size="241622" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="FekoPanel" >
