@@ -278,7 +278,11 @@ public class MainController implements Initializable {
                         @Override
                         public void handle(ActionEvent event) {
                             try {
-                                runTask(new File("actions/03A_1/action.json"), AppFunctions.FUNCTION_03_A_1, false, false);
+                                if(buttonToggleSingleDouble.isSelected()==false){
+                                    runTask(new File("actions/03A_1/action.json"), AppFunctions.FUNCTION_03_A_1, false, false);
+                                }else{
+                                    runTask(new File("actions/bi_site/03A_1/action.json"), AppFunctions.FUNCTION_03_A_1_BI, false, false);
+                                }
                             } catch (Exception ex) {
                                 Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
                             }
@@ -289,7 +293,11 @@ public class MainController implements Initializable {
                         @Override
                         public void handle(ActionEvent event) {
                             try {
-                                runTask(new File("actions/03A_2/action.json"), AppFunctions.FUNCTION_03_A_2, false, false);
+                                if(buttonToggleSingleDouble.isSelected()==false){
+                                    runTask(new File("actions/03A_2/action.json"), AppFunctions.FUNCTION_03_A_2, false, false);
+                                }else{
+                                    runTask(new File("actions/bi_site/03A_2/action.json"), AppFunctions.FUNCTION_03_A_2_BI, false, false);
+                                }
                             } catch (Exception ex) {
                                 Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
                             }
@@ -353,7 +361,11 @@ public class MainController implements Initializable {
     @FXML
     private void handle04AAction(ActionEvent event) {
         try {
-            runTask(new File("actions/04A/action.json"), AppFunctions.FUNCTION_04_A, false, false);
+            if(buttonToggleSingleDouble.isSelected()==false){
+                runTask(new File("actions/04A/action.json"), AppFunctions.FUNCTION_04_A, false, false);
+            }else{
+                runTask(new File("actions/bi_site/04A/action.json"), AppFunctions.FUNCTION_04_A_BI, false, false);
+            }
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -362,7 +374,11 @@ public class MainController implements Initializable {
     @FXML
     private void handle04BAction(ActionEvent event) {
         try {
-            runTask(new File("actions/04B/action.json"), AppFunctions.FUNCTION_04_B, false, false);
+            if(buttonToggleSingleDouble.isSelected()==false){
+                runTask(new File("actions/04B/action.json"), AppFunctions.FUNCTION_04_B, false, false);
+            }else{
+                runTask(new File("actions/bi_site/04B/action.json"), AppFunctions.FUNCTION_04_B_BI, false, false);
+            }
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -371,7 +387,11 @@ public class MainController implements Initializable {
     @FXML
     private void handle04CAction(ActionEvent event) {
         try {
-            runTask(new File("actions/04C/action.json"), AppFunctions.FUNCTION_04_C, false, false);
+            if(buttonToggleSingleDouble.isSelected()==false){
+                runTask(new File("actions/04C/action.json"), AppFunctions.FUNCTION_04_C, false, false);
+            }else{
+                runTask(new File("actions/bi_site/04C/action.json"), AppFunctions.FUNCTION_04_C_BI, false, false);
+            }
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -380,7 +400,11 @@ public class MainController implements Initializable {
     @FXML
     private void handle04DAction(ActionEvent event) {
         try {
-            runTask(new File("actions/04D/action.json"), AppFunctions.FUNCTION_04_D, false, false);
+            if(buttonToggleSingleDouble.isSelected()==false){
+                runTask(new File("actions/04D/action.json"), AppFunctions.FUNCTION_04_D, false, false);
+            }else{
+                runTask(new File("actions/bi_site/04D/action.json"), AppFunctions.FUNCTION_04_D_BI, false, false);
+            }
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }

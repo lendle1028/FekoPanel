@@ -75,7 +75,7 @@ public abstract class AbstractFekoCommandImpl implements FekoCommand {
     public void run(Callback callback) throws Exception {
         assignValueToParametersInLua();
         ProcessBuilder pb = new ProcessBuilder(this.getCommand());
-        Logger.getLogger(this.getClass().getName()).info("executing command: "+Arrays.deepToString(this.getCommand()));
+        Logger.getLogger(this.getClass().getName()).info("executing command: "+Arrays.deepToString(this.getCommand())+" in "+getWorkingDir());
         pb.directory(getWorkingDir());
         pb.redirectErrorStream();
         Process process = pb.start();

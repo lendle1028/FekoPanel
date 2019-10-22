@@ -15,7 +15,11 @@ public class MatlabCommandImpl extends AbstractFekoCommandImpl{
 
     @Override
     protected File getWorkingDir() {
-        return new File("matlab");
+        String workingDir=(String) this.fekoCommandConfig.getProperties().get("workingDir");
+        if(workingDir==null){
+            workingDir="matlab";
+        }
+        return new File(workingDir);
     }
     
     @Override
