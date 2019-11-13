@@ -1,23 +1,15 @@
 {
     "presetFiles":["actions/03B/generate_antenna_png(直角坐標RCS).lua"],
     "fekoCommandConfig":{
-        "className":"fekopanel.impl.DefaultFekoCommandImpl",
+        "className":"fekopanel.impl.InteractiveModeFekoCommandImpl",
         "main":"generate_antenna_png(直角坐標RCS).lua",
         "args":{
             "fileName": "${FEKO_FILE_NAME}"
-        }
+        },
+		"monitorForFile": "2D-RCS.png"
     },
     "postRunnerConfig":{
-        "className":"fekopanel.impl.OpenMultiFilePostRunnerImpl",
-        "files": [
-            {
-                "label": "2D-RCS示意圖1",
-                "name": "2D-RCS示意圖1.png"
-            },
-            {
-                "label": "2D-RCS示意圖2",
-                "name": "2D-RCS示意圖2.png"
-            }
-        ]
+        "className":"fekopanel.impl.OpenFilePostRunnerImpl",
+		"fileName":"2D-RCS.png"
     }
 }

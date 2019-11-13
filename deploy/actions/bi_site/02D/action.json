@@ -1,0 +1,35 @@
+{
+    "presetFiles":["actions/bi_site/02D/02-D-generate_antenna_png.lua"],
+    "fekoCommandConfig":{
+        "className":"fekopanel.impl.DefaultFekoCommandImpl",
+        "main":"02-D-generate_antenna_png.lua",
+        "args":{
+            "fileName": "${FEKO_FILE_NAME}"
+        }
+    },
+    "postRunnerConfig":{
+        "className":"fekopanel.impl.OpenMultiFilePostRunnerImpl",
+        "files": [
+            {
+                "label": "載具單/雙站RCS 2D圖",
+                "name": "temp_Graph1.png"
+            },
+            {
+                "label": "載具近場電場2D圖",
+                "name": "temp_Graph2.png"
+            },
+            {
+                "label": "載具3D模型圖",
+                "name": "temp_Graph3.png"
+            },
+            {
+                "label": "載具單/雙站RCS 3D圖",
+                "name": "temp_Graph4.png"
+            },
+            {
+                "label": "載具近場電場3D圖",
+                "name": "temp_Graph5.png"
+            }
+        ]
+    }
+}

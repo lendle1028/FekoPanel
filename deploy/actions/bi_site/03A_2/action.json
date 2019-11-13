@@ -1,0 +1,15 @@
+{
+    "presetFiles":["actions/bi_site/03A_2/empty.lua"],
+    "fekoCommandConfig":{
+        "className":"fekopanel.impl.MatlabCommandImpl",
+		"workingDir": "matlab/bi_site",
+        "main":"empty.lua",
+        "mscript": "dataplotY.m",
+        "args":{
+            "fileName": "${FEKO_FILE_NAME}"
+        }
+    },
+    "postRunnerConfig":{
+        "className":"fekopanel.impl.NoopPostRunnerImpl"
+    }
+}

@@ -1,23 +1,20 @@
 modelName = {}
-modelName[1] = "Horn"
-modelName[2] = "Patch"
+modelName[1] = "sphere-9.4GHz_FMM_standard_bi-static" 
+
 
 app = pf.GetApplication()
 app:NewProject()
-app:OpenFile("${fileName}")--Horn.fek
+app:OpenFile("${fileName}")--{filename}.fek
 
+    -- Add a Cartesian surface graph and a surface plot 
+    
+graph = app.CartesianSurfaceGraphs:Add()
+farFieldPlot = graph.Plots:Add(app.Models[1].Configurations[1].FarFields[1])
 
-    -- Create graphs 
-farFieldGraph = app.CartesianGraphs:Add()
-farFieldGraph.Traces:Add(app.Models[1].Configurations[1].FarFields[1])
- 
+    -- Change properties of the graph 
 
-    -- Create 3D Views
- 
- 
-    -- Export all graphs in the 'CartesianGraphCollection'
+graph.Grid.Minor.Visible = true
 
-for index, graph in pairs(app.Windows) do
-    graph:Maximise()
-    graph:ExportImage("2D-RCS示意圖"..index, "png")
-end
+graph:Restore()
+graph:SetSize(800,400)
+graph:ExportImage("2D-RCS", "png", 1000, 500)
