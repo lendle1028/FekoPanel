@@ -11,9 +11,16 @@ app:OpenFile("${fileName}")--{filename}.fek
 graph = app.CartesianSurfaceGraphs:Add()
 farFieldPlot = graph.Plots:Add(app.Models[1].Configurations[1].FarFields[1])
 
-    -- Change properties of the graph 
+    -- Configure the plot axes
 
-graph.Grid.Minor.Visible = true
+farFieldPlot.HorizontalIndependentAxis = "Plane Wave Theta (wrapped)"
+farFieldPlot.VerticalIndependentAxis = "Plane Wave Phi"
+
+    -- Hide the far field plot
+
+farFieldPlot.Visible = true
+
+    -- Change properties of the graph 
 
 graph:Restore()
 graph:SetSize(800,400)

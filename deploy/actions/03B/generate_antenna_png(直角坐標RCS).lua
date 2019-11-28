@@ -13,7 +13,14 @@ farFieldPlot = graph.Plots:Add(app.Models[1].Configurations[1].FarFields[1])
 
     -- Change properties of the graph 
 
-graph.Grid.Minor.Visible = true
+    -- Configure the plot axes
+
+farFieldPlot.HorizontalIndependentAxis = "Plane Wave Theta"
+farFieldPlot.VerticalIndependentAxis = "Plane Wave Phi"
+
+    -- Hide the far field plot
+
+farFieldPlot.Visible = true
 
 graph:Restore()
 graph:SetSize(800,400)
